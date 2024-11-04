@@ -27,10 +27,10 @@ export default function SideBar() {
         </button>
 
         {/* Profile Button */}
-        <Link to="/about">
+        <Link to="/info">
           <button className="flex flex-col items-center text-gray-600 hover:text-blue-500 focus:text-blue-500">
             <FaUser size={24} />
-            <span className="text-xs">Profile</span>
+            <span className="text-xs">Của tôi</span>
           </button>
         </Link>
       </div>

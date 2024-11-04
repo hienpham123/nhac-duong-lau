@@ -43,12 +43,12 @@ a {
 
 table {
   border-collapse: collapse;
-  border-spacing: 0;
+  border-spacing: 0; 
 }
 
 .container_body {
   max-width: 700px;
   margin: auto;
-  background: pink;
+  background: #ebebeb;
   height: auto;
 }

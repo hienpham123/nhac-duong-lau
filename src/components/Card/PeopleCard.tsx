@@ -7,7 +7,7 @@ import { TiLocation } from 'react-icons/ti'
 export default function PeopleCard() {
     return (
         <div className='bg-white w-fit p-3 rounded-lg flex flex-col gap-2'>
-            <h2 className='line-clamp-1'>Lorem Ipsum is simply dummy text</h2>
+            <h2 className='line-clamp-1 font-bold'>Lorem Ipsum is simply dummy text</h2>
             <img src="https://ispacedanang.edu.vn/wp-content/uploads/2024/05/hinh-anh-dep-ve-hoc-sinh-cap-3-1.jpg" alt="" />
             <div className='flex gap-1'>
                 {Array.from({ length: 5 }).map((_, index) => (
