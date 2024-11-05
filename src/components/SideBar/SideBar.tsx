@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function SideBar() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white shadow-md border-t border-gray-200 z-50 max-w-[700px] mx-auto">
+    <div className="sticky bottom-0 left-0 right-0 bg-white shadow-md border-t border-gray-200 z-50 max-w-[700px] mx-auto">
       <div className="flex justify-around items-center py-2">
         {/* Home Button */}
         <Link to="/">
