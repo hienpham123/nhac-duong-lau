@@ -1,0 +1,4 @@
+export const COLORS = {
+  PRIMARY: '#3853A4',
+  SECONDARY: '#F3F6F8',
+};

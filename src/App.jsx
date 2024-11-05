@@ -1,18 +1,47 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { Home } from './components/Home/Home';
-import SideBar from './components/SideBar/SideBar';
-import MyInfo from './components/MyInfo/MyInfo';
+import { ThemeProvider, createTheme } from '@mui/material';
+import { viVN } from '@mui/material/locale';
+import { BrowserRouter } from 'react-router-dom';
+import { AuthProvider } from './components/contexts/JWTAuthContext';
+import routes, { renderRoutes } from './router';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
+import { Provider } from 'react-redux'
+
+const theme = createTheme(
+  {
+    palette: {
+      primary: {
+        main: '#3853A4',
+        contrastText: '#fff'
+      },
+      text: {
+        primary: '#544949'
+      }
+    }
+  },
+  viVN
+);
 
 
 function App() {
   return (
     <div className='container_body'>
-      <SideBar/>
+      {/* <SideBar />
       <Routes>
-        <Route path="/" element={ <Home /> } />
-        <Route path="/info" element={ <MyInfo /> } />
-      </Routes>
+        <Route path={ROUTERS_PATHS.HOME} element={ <Home /> } />
+        <Route path={ROUTERS_PATHS.INFO} element={ <MyInfo /> } />
+      </Routes> */}
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <LocalizationProvider dateAdapter={AdapterMoment}>
+            <BrowserRouter>
+              <AuthProvider>{renderRoutes(routes)}</AuthProvider>
+            </BrowserRouter>
+          </LocalizationProvider>
+          <ConfirmModal />
+        </ThemeProvider>
+      </Provider>
     </div>
   );
 }
