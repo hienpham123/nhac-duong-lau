@@ -8,12 +8,12 @@ interface MainLayoutProps {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <Box sx={{ display: 'flex', backgroundColor: COLORS.SECONDARY }}>
+    <Box sx={{backgroundColor: COLORS.SECONDARY }}>
       <CssBaseline />
-      <SideBar />
-      <Box component="main" sx={{ flexGrow: 10, p: 3, pt: 10 }}>
+      <Box component="main" sx={{ flexGrow: 10, }}>
         {children}
       </Box>
+      <SideBar />
     </Box>
   );
 };
