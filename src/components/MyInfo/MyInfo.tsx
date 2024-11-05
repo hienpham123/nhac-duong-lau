@@ -10,6 +10,7 @@ import { MdOutlineAnnouncement } from 'react-icons/md'
 import { LuUser2 } from 'react-icons/lu'
 import { HiOutlineFilm } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
+import ROUTERS_PATHS from '../../shared/constants/router-path';
 
 export default function MyInfo() {
     return (
@@ -72,10 +73,12 @@ export default function MyInfo() {
 
             <div className='flex flex-col gap-5 mt-4 p-7 rounded-xl bg-white'>
                 <div className='flex justify-center gap-10 lg:gap-20 w-full'>
-                    <div className='flex flex-col items-center gap-2 w-32'>
-                        <BiTask size={30} className='outline outline-offset-4 outline-2 rounded-full' />
-                        <span className='font-semibold text-center text-lg lg:text-xl'>Thông tin tài khoản</span>
-                    </div>
+                    <Link to={ROUTERS_PATHS.ACCOUNT_INFO1}>
+                        <div className='flex flex-col items-center gap-2 w-32'>
+                            <BiTask size={30} className='outline outline-offset-4 outline-2 rounded-full' />
+                            <span className='font-semibold text-center text-lg lg:text-xl'>Thông tin tài khoản</span>
+                        </div>
+                    </Link>
                     <div className='flex flex-col items-center gap-2 w-32'>
                         <CiCreditCard1 size={30} className='outline outline-offset-4 outline-2 rounded-full' />
                         <span className='font-semibold text-center text-lg lg:text-xl'>Thông tin tài khoản</span>
@@ -87,10 +90,12 @@ export default function MyInfo() {
                         <TfiGame size={30} className='outline outline-offset-4 outline-2 rounded-full' />
                         <span className='font-semibold text-center text-lg lg:text-xl'>Lịch sử bình chọn</span>
                     </div>
-                    <div className='flex flex-col items-center gap-2 w-32'>
-                        <LuUser2 size={30} className='outline outline-offset-4 outline-2 rounded-full' />
-                        <span className='font-semibold text-center text-lg lg:text-xl'>Thông tin cơ bản</span>
-                    </div>
+                    <Link to={ROUTERS_PATHS.SETTINGS} state={{ type: 'normalInfo' }}>
+                        <div className='flex flex-col items-center gap-2 w-32'>
+                            <LuUser2 size={30} className='outline outline-offset-4 outline-2 rounded-full' />
+                            <span className='font-semibold text-center text-lg lg:text-xl'>Thông tin cơ bản</span>
+                        </div>
+                    </Link>
                 </div>
 
                 <div className='flex justify-center gap-10 lg:gap-20 w-full'>

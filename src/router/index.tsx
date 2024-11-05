@@ -79,6 +79,14 @@ const routes: IRoutesState[] = [
         path: ROUTERS_PATHS.SETTINGS,
         component: lazy(() => import('../components/MyInfo/Settings'))
       },
+      {
+        path: ROUTERS_PATHS.ACCOUNT_INFO1,
+        component: lazy(() => import('../components/MyInfo/AccountInfo'))
+      },
+      {
+        path: ROUTERS_PATHS.DETAILS,
+        component: lazy(() => import('../components/Card/PeopleCardDetail'))
+      },
     ]
   }
 ];

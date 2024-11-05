@@ -54,4 +54,5 @@ table {
   background: #ebebeb;
   height: auto;
   overflow: auto;
+  position: relative
 }

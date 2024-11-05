@@ -3,13 +3,15 @@ import { FaPlus, FaStar } from "react-icons/fa";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdNavigateNext } from "react-icons/md";
 import { TiTick } from "react-icons/ti";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Settings() {
     const navigate = useNavigate();
+    const location = useLocation();
+    const { type } = location.state || {};
     const [isOpen, setIsOpen] = React.useState({
-        settings: true,
-        information: false,
+        settings: type ? false : true,
+        information: type === 'normalInfo' ? true : false,
         trueName: false,
         gender: false,
         bankCard: false,
