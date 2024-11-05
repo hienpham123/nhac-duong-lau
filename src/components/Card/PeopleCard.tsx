@@ -6,33 +6,60 @@ import { Link } from 'react-router-dom'
 import ROUTERS_PATHS from '../../shared/constants/router-path'
 import { HiSpeakerphone } from 'react-icons/hi'
 
-export default function PeopleCard() {
+export interface IPeopleCard {
+    id: number;
+    title: string;
+    address: string;
+    vote: number;
+    age: number;
+    province: string;
+    price: string;
+    img_url: string;
+    description: string;
+    pass: string;
+    height: string;
+    year_of_birth: string;
+    images_list: { image: string }[];
+}
+
+
+interface IPeopleCardProps {
+    data: IPeopleCard
+}
+
+export default function PeopleCard({ data }: IPeopleCardProps) {
     return (
-        <Link to={ROUTERS_PATHS.DETAILS.replace(':id', '1')}>
-        <div className='bg-white w-fit p-3 rounded-lg flex flex-col gap-1'>
-            <h2 className='line-clamp-1 font-bold'>Lorem Ipsum is simply dummy text</h2>
-            <div className='relative overflow-hidden'>
-                <img src="https://ispacedanang.edu.vn/wp-content/uploads/2024/05/hinh-anh-dep-ve-hoc-sinh-cap-3-1.jpg" alt="" />
-                <h1 className='absolute top-2 left-4 w-full bg-pink-500 text-sm text-white inline-block truncate leading-tight'>{`Phan Đình Phùng, Phú Nhuận`}</h1>
+        <Link to={ROUTERS_PATHS.DETAILS.replace(':id', data.id.toString())}>
+            <div className='bg-white w-fit p-3 rounded-lg flex flex-col gap-1'>
+                <h2 className='line-clamp-1 font-bold'>{data.title}</h2>
+                <div className='relative overflow-hidden'>
+                    <div className="relative w-full pb-[100%]">
+                        <img
+                            src={data.img_url}
+                            className="absolute top-0 left-0 w-full h-full object-cover"
+                            alt=""
+                        />
+                    </div>
+                    <h1 className='absolute top-2 left-4 w-full bg-pink-500 text-sm text-white inline-block truncate leading-tight'>{data.address}</h1>
+                </div>
+                <div className='flex gap-1'>
+                    {Array.from({ length: data.vote }).map((_, index) => (
+                        <FaHeart key={index} size={20} color={'rgb(255, 0, 255)'} />
+                    ))}
+                </div>
+                <div className='flex justify-start items-center gap-1'>
+                    <HiSpeakerphone size={20} color={'rgb(255, 0, 255)'} />
+                    {data.age}
+                </div>
+                <div className='flex justify-start items-center gap-1'>
+                    <TiLocation size={20} color={'rgb(255, 0, 255)'} />
+                    {data.province}
+                </div>
+                <div className='flex justify-start items-center gap-1'>
+                    <IoWalletSharp size={18} color={'rgb(255, 0, 255)'} />
+                    {data.price}
+                </div>
             </div>
-            <div className='flex gap-1'>
-                {Array.from({ length: 5 }).map((_, index) => (
-                    <FaHeart key={index} size={20} color={'rgb(255, 0, 255)'} />
-                ))}
-            </div>
-            <div className='flex justify-start items-center gap-1'>
-                <HiSpeakerphone size={20} color={'rgb(255, 0, 255)'} />
-                {`20`}
-            </div>
-            <div className='flex justify-start items-center gap-1'>
-                <TiLocation size={20} color={'rgb(255, 0, 255)'} />
-                {`Phu Nhuan`}
-            </div>
-            <div className='flex justify-start items-center gap-1'>
-                <IoWalletSharp size={18} color={'rgb(255, 0, 255)'} />
-                {`1tr5 - 10tr`}
-            </div>
-        </div>
         </Link>
     )
 }

@@ -7,6 +7,7 @@ const ROUTERS_PATHS = {
   SETTINGS: '/settings',
   ACCOUNT_INFO1: '/account-info1',
   DETAILS: '/details/:id',
+  CHOSEN_PEOPELE: '/chosen-people'
 };
 
 export default ROUTERS_PATHS;

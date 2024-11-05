@@ -3,6 +3,7 @@ import { FaHome, FaYoutube, FaUser } from 'react-icons/fa';
 import { GiVote } from "react-icons/gi";
 import { Link } from 'react-router-dom';
 import ROUTERS_PATHS from '../../../shared/constants/router-path';
+import { FaPeopleRoof } from "react-icons/fa6";
 
 export default function SideBar() {
   return (
@@ -19,6 +20,13 @@ export default function SideBar() {
           <GiVote size={24} />
           <span className="text-xs">Bình chọn</span>
         </button>
+
+        <Link to={ROUTERS_PATHS.CHOSEN_PEOPELE}>
+          <button className="flex flex-col items-center text-gray-600 hover:text-blue-500 focus:text-blue-500">
+            <FaPeopleRoof size={24} />
+            <span className="text-xs">Chọn người tình</span>
+          </button>
+        </Link>
 
         <button className="flex flex-col items-center text-gray-600 hover:text-blue-500 focus:text-blue-500">
           <FaYoutube size={24} />

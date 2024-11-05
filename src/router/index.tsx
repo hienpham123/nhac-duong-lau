@@ -26,28 +26,28 @@ export interface IRoutesState {
 export const renderRoutes = (routes: IRoutesState[]) => (
   <React.Fragment>
 
-  <Suspense fallback={<LoadingScreen />}>
-    <Routes>
-      {routes.map((route, i) => {
-        const Guard = route.guard || Fragment;
-        const Layout = route.layout || Fragment;
-        const Component = route.component;
-        return (
-          <Route
-            key={i}
-            path={route.path}
-            element={
-              <Guard routes={routes}>
-                {/* <Permission role={route.role}> */}
-                <Layout>{route.routes ? renderRoutes(route.routes) : <Component screenName={route.role} />}</Layout>
-                {/* </Permission> */}
-              </Guard>
-            }
-          />
-        );
-      })}
-    </Routes>
-  </Suspense>
+    <Suspense fallback={<LoadingScreen />}>
+      <Routes>
+        {routes.map((route, i) => {
+          const Guard = route.guard || Fragment;
+          const Layout = route.layout || Fragment;
+          const Component = route.component;
+          return (
+            <Route
+              key={i}
+              path={route.path}
+              element={
+                <Guard routes={routes}>
+                  {/* <Permission role={route.role}> */}
+                  <Layout>{route.routes ? renderRoutes(route.routes) : <Component screenName={route.role} />}</Layout>
+                  {/* </Permission> */}
+                </Guard>
+              }
+            />
+          );
+        })}
+      </Routes>
+    </Suspense>
   </React.Fragment>
 
 );
@@ -86,6 +86,10 @@ const routes: IRoutesState[] = [
       {
         path: ROUTERS_PATHS.DETAILS,
         component: lazy(() => import('../components/Card/PeopleCardDetail'))
+      },
+      {
+        path: ROUTERS_PATHS.CHOSEN_PEOPELE,
+        component: lazy(() => import('../components/ChosenPeople/ChosenPeople'))
       },
     ]
   }

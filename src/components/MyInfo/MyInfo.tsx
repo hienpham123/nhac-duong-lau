@@ -68,7 +68,7 @@ export default function MyInfo() {
                         <IoRefreshCircleOutline size={34} color="rgb(255, 0, 255)" />
                     </div>
                 </div>
-                <div className='float-end text-xl lg:text-2xl mt-4'>{`(1K=1000, 1000k=1000000VND)`}</div>
+                <div className='float-end text-lg lg:text-2xl mt-4'>{`(1K=1000, 1000k=1000000VND)`}</div>
             </div>
 
             <div className='flex flex-col gap-5 mt-4 p-7 rounded-xl bg-white'>

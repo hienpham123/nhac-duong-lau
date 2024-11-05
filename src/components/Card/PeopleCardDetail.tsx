@@ -6,28 +6,17 @@ import { HiSpeakerphone } from "react-icons/hi";
 import { IoWalletSharp } from "react-icons/io5";
 import { TiLocation } from "react-icons/ti";
 import { MdAccessTimeFilled } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ROUTERS_PATHS from "../../shared/constants/router-path";
+import { data_lists } from "../../../mock/list-data";
+import { reports_list } from "../../../mock/reports";
 
 export default function PeopleCardDetail() {
   const [tab, setTab] = useState("info");
+  const { id } = useParams();
 
-  const list_images = [{
-    image: 'https://artena.vn/wp-content/uploads/2024/09/anh-gai-xinh-9645vHT.jpg',
-  },
-  {
-    image: 'https://image.anninhthudo.vn/h600/Uploaded/2024/wopkplw/2022_09_29/gia-han-ban-gai-hoang-duc-6-2042.jpg',
-  },
-  {
-    image: 'https://akinavn.vn/wp-content/uploads/anh-gai-xinh-000b61V.webp',
-  },
-  {
-    image: 'https://s1.media.ngoisao.vn/resize_580/news/2022/09/25/gai-biki-14-ngoisaovn-w1080-h1440.jpg',
-  },
-  {
-    image: 'https://imgt.taimienphi.vn/cf/Images/np/2022/8/16/anh-gai-xinh-cute-de-thuong-hot-girl-4.jpg',
-  }
-  ]
+  const item = data_lists.find(item => id && item.id == +id)
+  const reports = reports_list.filter(item => id && item.related_people == +id)
 
   return (
     <section className="relative w-full">
@@ -39,7 +28,7 @@ export default function PeopleCardDetail() {
           <h1 className="text-xl text-white text-center">Nạp tiền</h1>
         </div>
         <div className="p-2">
-          <h1 className="font-semibold text-lg">{`[REUP] Linh Kelly ✅ - FACE XINH + SIÊU TÌNH CẢM + HÀNG HOT`}</h1>
+          <h1 className="font-semibold text-lg">{item?.title}</h1>
 
           <div className="flex w-full items-center gap-2 justify-evenly mt-5">
             <div className="flex items-center gap-1" onClick={() => setTab('info')}>
@@ -49,13 +38,13 @@ export default function PeopleCardDetail() {
             <div className="flex items-center gap-1" onClick={() => setTab('images')}>
               <FaRegImage color="#e74c3c" />
               <h2 style={{ color: "#e74c3c" }}>
-                {`images`} {`(5)`}{" "}
+                {`images`} {`(${item?.images_list.length ?? 0})`}{" "}
               </h2>
             </div>
             <div className="flex items-center gap-1" onClick={() => setTab('reports')}>
               <HiSpeakerphone color="#e74c3c" />
               <h2 style={{ color: "#e74c3c" }}>
-                {`reports`} {`(12)`}
+                {`reports`} {`(${reports?.length ?? 0})`}
               </h2>
             </div>
           </div>
@@ -67,30 +56,30 @@ export default function PeopleCardDetail() {
           <div className="bg-white">
             <div className="relative overflow-hidden">
               <img
-                src="https://ispacedanang.edu.vn/wp-content/uploads/2024/05/hinh-anh-dep-ve-hoc-sinh-cap-3-1.jpg"
+                src={item?.img_url}
                 alt=""
                 className="w-full h-full object-cover"
               />
-              <h1 className="absolute top-2 left-4 w-full bg-pink-500 text-sm text-white inline-block truncate leading-tight">{`Phan Đình Phùng, Phú Nhuận`}</h1>
+              <h1 className="absolute top-2 left-4 bg-pink-500 text-sm text-white inline-block truncate leading-tight">{`Phan Đình Phùng, Phú Nhuận`}</h1>
             </div>
 
             <div className="flex flex-col gap-1 mt-3 px-2">
               <div className="flex gap-1">
-                {Array.from({ length: 5 }).map((_, index) => (
+                {Array.from({ length: item ? item?.vote : 0 }).map((_, index) => (
                   <FaHeart key={index} size={20} color={"rgb(255, 0, 255)"} />
                 ))}
               </div>
               <div className="flex justify-start items-center gap-1">
                 <IoWalletSharp size={18} color={"rgb(255, 0, 255)"} />
-                {`1tr5 - 10tr`}
+                {item?.price}
               </div>
               <div className="flex justify-start items-center gap-1">
                 <TiLocation size={20} color={"rgb(255, 0, 255)"} />
-                {`Phu Nhuan`}
+                {item?.province}
               </div>
               <div className="flex justify-start items-center gap-1">
                 <MdAccessTimeFilled size={20} color={"rgb(255, 0, 255)"} />
-                {`20`}
+                {item?.age}
               </div>
             </div>
           </div>
@@ -106,27 +95,46 @@ export default function PeopleCardDetail() {
 
           <div className="flex gap-8 p-3">
             <h1 className="text-md min-w-16">Pass</h1>
-            <p>{`ABCxyz`}</p>
+            <p>{item?.pass}</p>
           </div>
           <div className="bg-white flex gap-8 p-3">
             <h1 className="text-md min-w-16">Năm sinh</h1>
-            <p>{`2000`}</p>
+            <p>{item?.year_of_birth}</p>
           </div>
           <div className="flex gap-8 p-3">
             <h1 className="text-md min-w-16">Cao (cm)</h1>
-            <p>{`168`}</p>
+            <p>{item?.height}</p>
           </div>
         </>
       )}
 
       {tab === 'images' && <>
         <div className='grid grid-cols-2 gap-2'>
-          {list_images.map(item => {
+          {(item ? item?.images_list : []).map(item => {
             return <img src={item.image} alt="" className='object-cover w-full h-full' />
           })}
         </div>
       </>}
 
+      {tab === 'reports' && <>
+        <div className="p-3">
+          <h1 className="text-lg font-semibold">{`Bình luận`}</h1>
+        </div>
+        <div className='bg-white w-full p-3 flex flex-col gap-3'>
+          {reports.map(item => {
+            return <div className='flex gap-3 items-center'>
+              <img
+                className="min-w-[67px] h-[67px] object-cover"
+                src={item.author_image} alt=""
+              />
+              <div className='flex flex-col'>
+                <p className='text-xl font-semibold' style={{ color: '#f905e5' }}>{item.author}</p>
+                <p className='text-xl font-semibold'>{item.comment}</p>
+              </div>
+            </div>
+          })}
+        </div>
+      </>}
     </section>
   );
 }
