@@ -4,3 +4,7 @@
   padding: 2rem;
   text-align: center;
 }
+
+.rounded-full {
+  border-radius: 9999px !important;
+}

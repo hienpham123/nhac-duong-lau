@@ -38,9 +38,7 @@ export const renderRoutes = (routes: IRoutesState[]) => (
             path={route.path}
             element={
               <Guard routes={routes}>
-                {/* <Permission role={route.role}> */}
                 <Layout>{route.routes ? renderRoutes(route.routes) : <Component screenName={route.role} />}</Layout>
-                {/* </Permission> */}
               </Guard>
             }
           />
