@@ -56,7 +56,6 @@ const baseQueryWithReAuth: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQue
   //       result = await baseQuery(args, api, extraOptions);
   //     }
   //   }
-  console.log('result', result);
   if (result.error) {
     api.dispatch(
       setToastMessage({ status: STATUS_TOAST.ERROR, message: ERROR_TYPE?.[result.error.status] || '' })

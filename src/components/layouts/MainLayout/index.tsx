@@ -1,5 +1,5 @@
-import { Box, CssBaseline } from '@mui/material';
 import React from 'react';
+import { Box, CssBaseline } from '@mui/material';
 import { COLORS } from '../../../shared/constants/common';
 import SideBar from '../SideBar/SideBar';
 interface MainLayoutProps {

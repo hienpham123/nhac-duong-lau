@@ -1,3 +1,4 @@
+import React from 'react'
 import { configureStore } from '@reduxjs/toolkit';
 import userSlice from './store/userInfo';
 import confirmationModalSlice from './store/confirmationModal';

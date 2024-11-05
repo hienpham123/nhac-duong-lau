@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import GuestGuard from '../components/GuestGuard';
 import MainLayout from '../components/layouts/MainLayout';
 import ROUTERS_PATHS from '../shared/constants/router-path';
+import LoadingScreen from '../components/LoadingScreen';
 
 interface IAuthGuardProps {
   children: React.ReactNode;
@@ -23,7 +24,9 @@ export interface IRoutesState {
   role?: string;
 }
 export const renderRoutes = (routes: IRoutesState[]) => (
-  <Suspense>
+  <React.Fragment>
+
+  <Suspense fallback={<LoadingScreen />}>
     <Routes>
       {routes.map((route, i) => {
         const Guard = route.guard || Fragment;
@@ -45,18 +48,10 @@ export const renderRoutes = (routes: IRoutesState[]) => (
       })}
     </Routes>
   </Suspense>
+  </React.Fragment>
+
 );
 const routes: IRoutesState[] = [
-  //   {
-  //     exact: true,
-  //     path: ROUTERS_PATHS.NOT_FOUND,
-  //     component: lazy(() => import("pages/NotFoundView")),
-  //   },
-  //   {
-  //     exact: true,
-  //     path: ROUTERS_PATHS.AUTHORIZATION,
-  //     component: lazy(() => import("pages/AuthorizationView")),
-  //   },
   {
     guard: GuestGuard,
     path: ROUTERS_PATHS.LOGIN,
@@ -75,6 +70,10 @@ const routes: IRoutesState[] = [
       {
         path: ROUTERS_PATHS.HOME,
         component: lazy(() => import('../components/Home/Home'))
+      },
+      {
+        path: ROUTERS_PATHS.INFO,
+        component: lazy(() => import('../components/MyInfo/MyInfo'))
       },
     ]
   }

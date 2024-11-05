@@ -1,8 +1,8 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-// import useAuth from "src/hooks/useAuth";
 import ROUTERS_PATHS from "../../shared/constants/router-path";
 import { IRoutesState } from "../../router";
+import useAuth from "../hooks/useAuth";
 
 interface GuestGuardProps {
   children: React.ReactNode;
@@ -11,8 +11,7 @@ interface GuestGuardProps {
 
 const GuestGuard = (props: GuestGuardProps) => {
   const { children } = props;
-//   const { isAuthenticated } = useAuth();
-  const  isAuthenticated  = true
+  const { isAuthenticated } = useAuth();
 
   if (isAuthenticated) {
     return <Navigate to={ROUTERS_PATHS.HOME} replace />;

@@ -7,6 +7,9 @@ import routes, { renderRoutes } from './router';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { Provider } from 'react-redux'
+import { store } from './components/redux';
+import ConfirmDialog from './components/ConfirmDialog';
+import LoadingScreen from './components/LoadingScreen';
 
 const theme = createTheme(
   {
@@ -20,29 +23,23 @@ const theme = createTheme(
       }
     }
   },
-  viVN
+  // viVN
 );
 
 
-function App() {
+const App = () => {
   return (
-    <div className='container_body'>
-      {/* <SideBar />
-      <Routes>
-        <Route path={ROUTERS_PATHS.HOME} element={ <Home /> } />
-        <Route path={ROUTERS_PATHS.INFO} element={ <MyInfo /> } />
-      </Routes> */}
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <LocalizationProvider dateAdapter={AdapterMoment}>
-            <BrowserRouter>
-              <AuthProvider>{renderRoutes(routes)}</AuthProvider>
-            </BrowserRouter>
-          </LocalizationProvider>
-          <ConfirmModal />
-        </ThemeProvider>
-      </Provider>
-    </div>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <LocalizationProvider dateAdapter={AdapterMoment}>
+          <BrowserRouter>
+            <AuthProvider>{renderRoutes(routes)}</AuthProvider>
+          </BrowserRouter>
+        </LocalizationProvider>
+        <ConfirmDialog />
+        <LoadingScreen />
+      </ThemeProvider>
+    </Provider>
   );
 }
 
