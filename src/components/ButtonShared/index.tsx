@@ -14,6 +14,7 @@ interface ButtonSharedPropsModel {
   onClick?: (parameters: any) => void;
   color?: ColorType;
   sx?: any;
+  fullWidth?: boolean;
 }
 const ButtonShared = (props: ButtonSharedPropsModel) => {
   const { loading, startIcon, label, sx, ...rest } = props;

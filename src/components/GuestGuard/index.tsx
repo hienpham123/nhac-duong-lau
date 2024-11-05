@@ -6,7 +6,7 @@ import useAuth from "../hooks/useAuth";
 
 interface GuestGuardProps {
   children: React.ReactNode;
-  routes: IRoutesState[];
+  routes?: IRoutesState[];
 }
 
 const GuestGuard = (props: GuestGuardProps) => {
