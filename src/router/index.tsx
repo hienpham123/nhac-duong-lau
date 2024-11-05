@@ -1,9 +1,9 @@
 import React, { Fragment, lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import GuestGuard from '../components/GuestGuard';
-import MainLayout from '../components/layouts/MainLayout';
 import ROUTERS_PATHS from '../shared/constants/router-path';
 import LoadingScreen from '../components/LoadingScreen';
+import MainLayout from '../components/layouts/MainLayout';
 
 interface IAuthGuardProps {
   children: React.ReactNode;
