@@ -41,25 +41,20 @@ export default function Settings() {
     };
 
     const handleBack = () => {
-        if (isOpen.settings) {
-            return navigate("/info");
-        } else if (isOpen.information) {
-            return handleOpen("settings");
-        } else if (isOpen.trueName) {
-            return handleOpen("information");
-        } else if (isOpen.gender) {
-            return handleOpen("information");
-        } else if (isOpen.bankCard) {
-            return handleOpen("information");
-        } else if (isOpen.passWordLogin) {
-            return handleOpen("settings");
-        } else if (isOpen.passWordPay) {
-            return handleOpen("settings");
-        } else if (isOpen.language) {
-            return handleOpen("settings");
-        }
+        const backActions = {
+            settings: () => navigate("/info"),
+            information: () => handleOpen("settings"),
+            trueName: () => handleOpen("information"),
+            gender: () => handleOpen("information"),
+            bankCard: () => handleOpen("information"),
+            passWordLogin: () => handleOpen("settings"),
+            passWordPay: () => handleOpen("settings"),
+            language: () => handleOpen("settings"),
+        };
+    
+        Object.keys(isOpen).forEach((key) => isOpen[key] && backActions[key]());
     };
-
+    
     return (
         <section className="relative w-full min-h-screen">
             <div className="flex h-12 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
