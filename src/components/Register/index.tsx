@@ -2,13 +2,10 @@ import React, { useState } from "react"
 import imageBg from '../../assets/images/background.jpg'
 import { IoIosArrowBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import { InputAdornment, TextField } from "@mui/material";
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { CheckBox } from "@mui/icons-material";
 import ButtonShared from "../ButtonShared";
 import { useLoginMutation, useRegisterMutation } from "../services/authentication.service";
 import useAuth from "../hooks/useAuth";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const navigate = useNavigate()
@@ -74,39 +71,25 @@ const Register = () => {
             setUserName(e.target.value)
           }}
         />
-
-        <TextField
-          type={openVisibility ? 'text' : 'password'}
-          fullWidth 
-          placeholder="Vui lòng nhập mật khẩu đăng nhập" 
-          sx={{
-            background: 'white',
-            borderRadius: '9999px',
-            border: 'none !important',
-            marginTop: '30px',
-            height: '50px',
-            '& .MuiInputBase-input': {
-              textAlign: 'center', 
-              height: '100%'
-            },
-          }}
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value)
-          }}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                {openVisibility ? (
-                  <VisibilityOffIcon onClick={togglePassword} />
-                ) : (
-                  <VisibilityIcon onClick={togglePassword} />
-                )}
-              </InputAdornment>
-            ),
-            style: { textAlign: 'center' },
-          }}
-        />  
+         <div className="relative mt-8 w-80">
+          <input
+            type={openVisibility ? 'text' : 'password'}
+            placeholder="Vui lòng nhập mật khẩu đăng nhập" 
+            className="w-full bg-white rounded-full h-[50px] border-none focus:ring-0 text-center px-4"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer"
+            onClick={togglePassword}
+          >
+            {openVisibility ? (
+              <FaEyeSlash size={20} className="text-gray-500" />
+            ) : (
+              <FaEye size={20} className="text-gray-500" />
+            )}
+          </div>
+        </div>
 
         <input
           type="text"
