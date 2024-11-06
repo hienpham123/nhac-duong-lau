@@ -1,23 +1,15 @@
 import React from "react";
-import PeopleCard from "../Card/PeopleCard";
+import PeopleCard, { IPeopleCard } from "../Card/PeopleCard";
+import { data_lists } from "../../../mock/list-data";
 
 const Home = () => {
+  const data: IPeopleCard[] = data_lists
+
   return (
-    <div className="grid grid-cols-2 gap-x-2 gap-y-5 p-3">
-      {/* <SideBar/>
-      <Routes>
-        <Route path="/" element={ <Home /> } />
-        <Route path="/info" element={ <MyInfo /> } />
-      </Routes> */}
-      <PeopleCard/>
-      <PeopleCard/>
-      <PeopleCard/>
-      <PeopleCard/>
-      <PeopleCard/>
-      <PeopleCard/>
-      <PeopleCard/>
-      <PeopleCard/>
-      <PeopleCard/>
+    <div className="grid grid-cols-2 gap-x-2 gap-y-5 p-3 w-full min-h-screen">
+      {data.map((item: IPeopleCard) => {
+        return <PeopleCard key={item.id} data={item} />
+      })}
     </div>
   );
 }

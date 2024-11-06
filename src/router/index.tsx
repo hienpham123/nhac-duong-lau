@@ -83,6 +83,26 @@ const routes: IRoutesState[] = [
         path: ROUTERS_PATHS.SETTINGS,
         component: lazy(() => import('../components/MyInfo/Settings'))
       },
+      {
+        path: ROUTERS_PATHS.ACCOUNT_INFO1,
+        component: lazy(() => import('../components/MyInfo/AccountInfo'))
+      },
+      {
+        path: ROUTERS_PATHS.DETAILS,
+        component: lazy(() => import('../components/Card/PeopleCardDetail'))
+      },
+      {
+        path: ROUTERS_PATHS.CHOSEN_PEOPELE,
+        component: lazy(() => import('../components/ChosenPeople/ChosenPeople'))
+      },
+      {
+        path: ROUTERS_PATHS.CHOOSEN_PROVINCE,
+        component: lazy(() => import('../components/ChosenPeople/ChooseProvince'))
+      },
+      {
+        path: ROUTERS_PATHS.CHOOSEN_PROFILE,
+        component: lazy(() => import('../components/ChosenPeople/Profile'))
+      },
     ]
   }
 ];

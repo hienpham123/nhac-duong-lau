@@ -3,15 +3,17 @@ import { FaPlus, FaStar } from "react-icons/fa";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdNavigateNext } from "react-icons/md";
 import { TiTick } from "react-icons/ti";
-import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Settings() {
     const navigate = useNavigate();
     const { logout } = useAuth()
+    const location = useLocation();
+    const { type } = location.state || {};
     const [isOpen, setIsOpen] = React.useState({
-        settings: true,
-        information: false,
+        settings: type ? false : true,
+        information: type === 'normalInfo' ? true : false,
         trueName: false,
         gender: false,
         bankCard: false,
@@ -60,7 +62,7 @@ export default function Settings() {
 
     return (
         <section className="relative w-full min-h-screen">
-            <div className="flex h-12 items-center bg-fuchsia-400 justify-center">
+            <div className="flex h-12 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
                 <div onClick={() => handleBack()} className="absolute left-3">
                     <IoIosArrowBack size={30} color="white" />
                 </div>
@@ -222,7 +224,7 @@ export default function Settings() {
                         </div>
                     </div>
 
-                    <div className="w-5/6 mx-auto bg-fuchsia-400 rounded-3xl p-2">
+                    <div className="w-5/6 mx-auto bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] rounded-3xl p-2">
                         <h1 className="text-xl text-white text-center">Xác nhận</h1>
                     </div>
                 </div>
@@ -257,7 +259,7 @@ export default function Settings() {
                         </div>
                     </div>
 
-                    <div className="w-5/6 mx-auto bg-fuchsia-400 rounded-3xl p-2">
+                    <div className="w-5/6 mx-auto bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] rounded-3xl p-2">
                         <h1 className="text-xl text-white text-center">Xác nhận</h1>
                     </div>
                 </div>
