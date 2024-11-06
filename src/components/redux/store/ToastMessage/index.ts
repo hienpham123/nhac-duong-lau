@@ -16,7 +16,6 @@ export const toastMessageSlice = createSlice({
   initialState,
   reducers: {
     setToastMessage: (state, { payload }) => {
-      console.log('payload setToastMessage', payload);
       state.toastMessage = payload;
       if (!payload.message && payload.status === STATUS_TOAST.ERROR) {
         state.toastMessage.message = 'Hệ thống xảy ra lỗi. Vui lòng liên hệ với Quản trị viên';

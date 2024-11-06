@@ -4,6 +4,7 @@ import GuestGuard from '../components/GuestGuard';
 import MainLayout from '../components/layouts/MainLayout';
 import ROUTERS_PATHS from '../shared/constants/router-path';
 import LoadingScreen from '../components/LoadingScreen';
+import AuthGuard from '../components/AuthGuard';
 
 interface IAuthGuardProps {
   children: React.ReactNode;
@@ -57,12 +58,17 @@ const routes: IRoutesState[] = [
   },
   {
     guard: GuestGuard,
+    path: ROUTERS_PATHS.REGISTER,
+    component: lazy(() => import('../components/Register'))
+  },
+  {
+    guard: GuestGuard,
     path: ROUTERS_PATHS.FORGOT_PASSWORD,
     component: lazy(() => import('../components/Login'))
   },
   {
     path: ROUTERS_PATHS.ALL,
-    // guard: AuthGuard,
+    guard: AuthGuard,
     layout: MainLayout,
     routes: [
       {

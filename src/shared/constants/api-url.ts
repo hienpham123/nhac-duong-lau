@@ -1,4 +1,4 @@
 export const API_URL = {
-  LOGIN_ADMIN: '/api/Authentication/Login',
-  GET_CURRENT_USER: '/api/User/GetCurrentUser',
+  LOGIN_ADMIN: '/api/auth/login',
+  GET_CURRENT_USER: '/api/auth/getCurrentUser',
 };

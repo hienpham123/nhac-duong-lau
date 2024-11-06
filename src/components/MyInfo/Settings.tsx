@@ -4,9 +4,11 @@ import { IoIosArrowBack } from "react-icons/io";
 import { MdNavigateNext } from "react-icons/md";
 import { TiTick } from "react-icons/ti";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 export default function Settings() {
     const navigate = useNavigate();
+    const { logout } = useAuth()
     const [isOpen, setIsOpen] = React.useState({
         settings: true,
         information: false,
@@ -17,6 +19,10 @@ export default function Settings() {
         passWordPay: false,
         language: false,
     });
+
+    const handleLogout = () => {
+        logout()
+    }
 
     const handleOpen = (key) => {
         setIsOpen({
@@ -99,7 +105,7 @@ export default function Settings() {
                         </div>
                     </div>
 
-                    <div className="w-5/6 mx-auto bg-fuchsia-400 rounded-3xl p-2">
+                    <div className="w-5/6 mx-auto bg-fuchsia-400 rounded-3xl p-2" onClick={handleLogout}>
                         <h1 className="text-xl text-white text-center">Đăng xuất</h1>
                     </div>
                 </div>

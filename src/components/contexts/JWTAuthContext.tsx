@@ -65,12 +65,12 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
   const [getCurrentUser] = useLazyGetCurrentUserQuery();
 
   const login = async (data: any) => {
-    localStorage.setItem('token', data.content.token);
-    localStorage.setItem('refreshToken', data.content.refreshToken);
+    localStorage.setItem('token', data.accessToken);
+    localStorage.setItem('refreshToken', data.accessToken);
     let userInfo = null;
 
     try {
-      if (data.content.token) {
+      if (data.accessToken) {
         userInfo = await getCurrentUser('').unwrap();
       }
     } catch (error) {
