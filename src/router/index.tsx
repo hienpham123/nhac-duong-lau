@@ -103,6 +103,10 @@ const routes: IRoutesState[] = [
         path: ROUTERS_PATHS.CHOOSEN_PROFILE,
         component: lazy(() => import('../components/ChosenPeople/Profile'))
       },
+      {
+        path: ROUTERS_PATHS.VIDEO,
+        component: lazy(() => import('../components/WatchVideo/WatchVideo'))
+      },
     ]
   }
 ];

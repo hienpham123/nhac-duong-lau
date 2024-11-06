@@ -10,6 +10,7 @@ export default function ChooseProvince() {
     const items = choosen_province_list.filter(
         (item) => province && item.province_id == +province
     );
+
     return (
         <section className="w-full h-full min-h-screen">
             <div className="flex h-12 md:h-20 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
@@ -17,7 +18,7 @@ export default function ChooseProvince() {
                     <IoIosArrowBack size={30} color="white" />
                 </Link>
                 <h1 className="text-xl sm:text-3xl font-semibold text-white text-center">
-                    {items[0].province_name}
+                    {items.length ? items[0].province_name : ''}
                 </h1>
             </div>
             <div className="grid grid-cols-2 gap-2 rounded-lg p-2">
