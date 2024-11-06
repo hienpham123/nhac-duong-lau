@@ -89,6 +89,14 @@ const routes: IRoutesState[] = [
         path: ROUTERS_PATHS.CHOSEN_PEOPELE,
         component: lazy(() => import('../components/ChosenPeople/ChosenPeople'))
       },
+      {
+        path: ROUTERS_PATHS.CHOOSEN_PROVINCE,
+        component: lazy(() => import('../components/ChosenPeople/ChooseProvince'))
+      },
+      {
+        path: ROUTERS_PATHS.CHOOSEN_PROFILE,
+        component: lazy(() => import('../components/ChosenPeople/Profile'))
+      },
     ]
   }
 ];

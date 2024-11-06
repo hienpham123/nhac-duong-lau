@@ -19,7 +19,7 @@ export default function PeopleCardDetail() {
   const reports = reports_list.filter(item => id && item.related_people == +id)
 
   return (
-    <section className="relative w-full">
+    <section className="relative w-full min-h-screen">
       <div className="bg-white">
         <div className="flex h-12 items-center bg-fuchsia-400 justify-center">
           <Link to={ROUTERS_PATHS.HOME} className="absolute left-3">
@@ -122,14 +122,14 @@ export default function PeopleCardDetail() {
         </div>
         <div className='bg-white w-full p-3 flex flex-col gap-3'>
           {reports.map(item => {
-            return <div className='flex gap-3 items-center'>
+            return <div className='flex gap-3'>
               <img
-                className="min-w-[67px] h-[67px] object-cover"
+                className="min-w-[31px] md:min-w-[67px] h-[31px] md:h-[67px] object-cover"
                 src={item.author_image} alt=""
               />
               <div className='flex flex-col'>
-                <p className='text-xl font-semibold' style={{ color: '#f905e5' }}>{item.author}</p>
-                <p className='text-xl font-semibold'>{item.comment}</p>
+                <p className='text-sm md:text-xl font-semibold' style={{ color: '#f905e5' }}>{item.author}</p>
+                <p className='text-sm md:text-xl font-medium'>{item.comment}</p>
               </div>
             </div>
           })}
