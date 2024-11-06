@@ -7,9 +7,14 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { CheckBox } from "@mui/icons-material";
 import ButtonShared from "../ButtonShared";
+import { useLoginMutation, useRegisterMutation } from "../services/authentication.service";
+import useAuth from "../hooks/useAuth";
 
 const Register = () => {
   const navigate = useNavigate()
+  const [registerApi] = useRegisterMutation();
+  const { login } = useAuth();
+  const [loginApi, { isLoading }] = useLoginMutation();
   const [openVisibility, setOpenVisibility] = useState<boolean>(false)
   const [userName, setUserName] = useState<string>('')
   const [password, setPassword] = useState<string>('')
@@ -23,8 +28,28 @@ const Register = () => {
     setOpenVisibility(!openVisibility)
   }
 
-  const handleRegister = () => {
-
+  const handleRegister = async () => {
+    try {
+      const params = {
+        username: userName,
+        password: password,
+        numberPhone: code
+      };
+      const paramsLogin = {
+        username: userName,
+        password: password,
+      }
+      const res: any = await registerApi(params)
+      if(res.message === 'Đăng ký thành công') {
+        const resLogin = await loginApi(paramsLogin)
+        if (resLogin.data) {
+          login(resLogin.data);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      
+    }
   }
 
   return (

@@ -32,7 +32,7 @@ const baseQueryWithReAuth: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQue
 ) => {
   // wait until the mutex is available without locking it
   await mutex.waitForUnlock();
-  let result = await baseQuery(args, api, extraOptions);
+  let result: any = await baseQuery(args, api, extraOptions);
   //   if (result.error && result.error.status === 401) {
   //     // checking whether the mutex is locked
   //     if (!mutex.isLocked()) {
@@ -58,7 +58,7 @@ const baseQueryWithReAuth: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQue
   //   }
   if (result.error) {
     api.dispatch(
-      setToastMessage({ status: STATUS_TOAST.ERROR, message: ERROR_TYPE?.[result.error.status] || '' })
+      setToastMessage({ status: STATUS_TOAST.ERROR, message: result.error.data.message || '' })
     );
   }
   return result;

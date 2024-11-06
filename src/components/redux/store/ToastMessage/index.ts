@@ -18,7 +18,7 @@ export const toastMessageSlice = createSlice({
     setToastMessage: (state, { payload }) => {
       state.toastMessage = payload;
       if (!payload.message && payload.status === STATUS_TOAST.ERROR) {
-        state.toastMessage.message = 'Hệ thống xảy ra lỗi. Vui lòng liên hệ với Quản trị viên';
+        state.toastMessage.message = payload.message;
       }
     }
   }

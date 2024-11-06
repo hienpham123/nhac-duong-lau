@@ -15,8 +15,15 @@ export const extendedApi = baseApi.injectEndpoints({
         url: API_URL.GET_CURRENT_USER,
         method: 'GET'
       })
+    }),
+    register: build.mutation({
+      query: (data) => ({
+        url: API_URL.REGISTER,
+        method: 'POST',
+        body: data
+      })
     })
   })
 });
 
-export const { useLoginMutation, useLazyGetCurrentUserQuery } = extendedApi;
+export const { useLoginMutation, useLazyGetCurrentUserQuery, useRegisterMutation } = extendedApi;
