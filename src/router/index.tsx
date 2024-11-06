@@ -27,26 +27,26 @@ export interface IRoutesState {
 export const renderRoutes = (routes: IRoutesState[]) => (
   <React.Fragment>
 
-  <Suspense fallback={<LoadingScreen />}>
-    <Routes>
-      {routes.map((route, i) => {
-        const Guard = route.guard || Fragment;
-        const Layout = route.layout || Fragment;
-        const Component = route.component;
-        return (
-          <Route
-            key={i}
-            path={route.path}
-            element={
-              <Guard routes={routes}>
-                <Layout>{route.routes ? renderRoutes(route.routes) : <Component screenName={route.role} />}</Layout>
-              </Guard>
-            }
-          />
-        );
-      })}
-    </Routes>
-  </Suspense>
+    <Suspense fallback={<LoadingScreen />}>
+      <Routes>
+        {routes.map((route, i) => {
+          const Guard = route.guard || Fragment;
+          const Layout = route.layout || Fragment;
+          const Component = route.component;
+          return (
+            <Route
+              key={i}
+              path={route.path}
+              element={
+                <Guard routes={routes}>
+                  <Layout>{route.routes ? renderRoutes(route.routes) : <Component screenName={route.role} />}</Layout>
+                </Guard>
+              }
+            />
+          );
+        })}
+      </Routes>
+    </Suspense>
   </React.Fragment>
 
 );
@@ -68,7 +68,7 @@ const routes: IRoutesState[] = [
   },
   {
     path: ROUTERS_PATHS.ALL,
-    guard: AuthGuard,
+    // guard: AuthGuard,
     layout: MainLayout,
     routes: [
       {
@@ -106,6 +106,10 @@ const routes: IRoutesState[] = [
       {
         path: ROUTERS_PATHS.VIDEO,
         component: lazy(() => import('../components/WatchVideo/WatchVideo'))
+      },
+      {
+        path: ROUTERS_PATHS.VIDEO_DETAIL,
+        component: lazy(() => import('../components/WatchVideo/VideoContent'))
       },
     ]
   }

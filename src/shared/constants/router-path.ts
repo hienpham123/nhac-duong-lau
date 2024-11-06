@@ -11,7 +11,8 @@ const ROUTERS_PATHS = {
   CHOSEN_PEOPELE: '/chosen-people',
   CHOOSEN_PROVINCE: '/chosen-province/:province',
   CHOOSEN_PROFILE: '/profile/:province/:id',
-  VIDEO: '/video'
+  VIDEO: '/video',
+  VIDEO_DETAIL: '/video/:id'
 };
 
 export default ROUTERS_PATHS;

@@ -30,7 +30,7 @@ interface IPeopleCardProps {
 export default function PeopleCard({ data }: IPeopleCardProps) {
     return (
         <Link to={ROUTERS_PATHS.DETAILS.replace(':id', data.id.toString())}>
-            <div className='bg-white w-fit p-3 rounded-lg flex flex-col gap-1'>
+            <div className='bg-white w-fit p-3 rounded-lg flex flex-col gap-1 lg:gap-2'>
                 <h2 className='line-clamp-1 font-bold'>{data.title}</h2>
                 <div className='relative overflow-hidden'>
                     <div className="relative w-full pb-[100%]">
@@ -40,7 +40,7 @@ export default function PeopleCard({ data }: IPeopleCardProps) {
                             alt=""
                         />
                     </div>
-                    <h1 className='absolute top-2 left-4 w-full bg-pink-500 text-sm text-white inline-block truncate leading-tight'>{data.address}</h1>
+                    <h1 className='absolute top-2 left-4 w-full bg-[#f905e5] font-semibold text-sm text-white inline-block truncate leading-tight'>{data.address}</h1>
                 </div>
                 <div className='flex gap-1'>
                     {Array.from({ length: data.vote }).map((_, index) => (

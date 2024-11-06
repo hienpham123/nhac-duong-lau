@@ -2,7 +2,10 @@ import React, { useRef, useState } from 'react'
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Box } from '@mui/material';
-import Video from './Video';
+import VideoCard from './VideoCard';
+import { videos_list } from "../../../mock/video-list"
+import ROUTERS_PATHS from "../../shared/constants/router-path";
+import { Link } from "react-router-dom";
 
 export default function WatchVideo() {
     const [value, setValue] = React.useState(1);
@@ -23,6 +26,7 @@ export default function WatchVideo() {
         'Anime',
     ];
 
+    const videos = videos_list
     return (
         <section className='w-full h-full min-h-screen'>
             <div className="flex h-12 md:h-20 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
@@ -60,8 +64,7 @@ export default function WatchVideo() {
                 </Tabs>
             </Box>
             <div className='grid grid-cols-2 gap-2 p-2'>
-                <Video url='https://youtu.be/dV6kLDpE80Y' />
-                <Video url='https://youtu.be/dV6kLDpE80Y' />
+                {videos.length && videos.map(video => <Link state={{ data: video }} to={ROUTERS_PATHS.VIDEO_DETAIL.replace(':id', video.id.toString()) }><VideoCard video={video} /></Link>)}
             </div>
         </section>
     )

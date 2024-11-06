@@ -1,0 +1,45 @@
+export const videos_list = [{
+    id: 1,
+    title: 'XẢ VIBES - DANMY và V# có màn kết hợp cực slay cực cháy | Rap Việt 2024 [Performance]',
+    description: 'XẢ VIBES - DANMY và V# có màn kết hợp cực slay cực cháy | Rap Việt 2024 [Performance]',
+    type_name: 'Viêt Nam',
+    type_id: '1',
+    video_image: 'https://i.ytimg.com/vi/dV6kLDpE80Y/hqdefault.jpg?s…AFwAcABBg==&rs=AOn4CLAVUOphfiKvRUEUOjXCmJBN63NBiQ',
+    url: 'https://youtu.be/aWEehWHQChs?list=RDdV6kLDpE80Y',
+    views: 1000,
+    likes: 500,
+    dislikes: 200,
+    comments: 300,
+    createdAt: new Date('2022-01-01'),
+    updatedAt: new Date('2022-01-05'),
+    author: {
+        id: 1,
+        name: 'User 1',
+        avatar: 'https://example.com/avatar1.jpg',
+        followers: 500,
+        following: 300,
+    }
+},
+{
+    id: 2,
+    title: 'WINNER - MANBO và Billy100 trình diễn với phong thái người chiến thắng | Rap Việt 2024 [Performance]',
+    type_name: 'Viêt Nam',
+    type_id: '1',
+    description: 'WINNER - MANBO và Billy100 trình diễn với phong thái người chiến thắng | Rap Việt 2024 [Performance]',
+    url: 'https://youtu.be/IkSUYwMobk4?list=RDdV6kLDpE80Y',
+    video_image: 'https://i.ytimg.com/vi/YLtsIpiZmzU/hqdefault.jpg?s…AFwAcABBg==&rs=AOn4CLDYdjMcW4G2lnit5nXF45nZBJvjgg',
+    views: 2000,
+    likes: 800,
+    dislikes: 150,
+    comments: 400,
+    createdAt: new Date('2022-01-02'),
+    updatedAt: new Date('2022-01-08'),
+    author: {
+        id: 2,
+        name: 'User 2',
+        avatar: 'https://example.com/avatar2.jpg',
+        followers: 300,
+        following: 600,
+    }
+}
+]
