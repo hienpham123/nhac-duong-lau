@@ -8,7 +8,7 @@ export default function Profile() {
     const { data } = location.state || {};
     return (
         <section className="w-full h-full min-h-screen">
-            <div className="flex h-12 md:h-20 items-center bg-fuchsia-400 justify-center">
+            <div className="flex h-12 md:h-20 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
                 <Link
                     to={ROUTERS_PATHS.CHOOSEN_PROVINCE.replace(
                         ":province",

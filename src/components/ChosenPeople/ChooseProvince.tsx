@@ -12,7 +12,7 @@ export default function ChooseProvince() {
     );
     return (
         <section className="w-full h-full min-h-screen">
-            <div className="flex h-12 md:h-20 items-center bg-fuchsia-400 justify-center">
+            <div className="flex h-12 md:h-20 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
                 <Link to={ROUTERS_PATHS.CHOSEN_PEOPELE} className="absolute left-3">
                     <IoIosArrowBack size={30} color="white" />
                 </Link>

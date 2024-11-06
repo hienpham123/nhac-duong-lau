@@ -82,7 +82,7 @@ export default function ChosenPeople() {
 
     return (
         <section className='w-full min-h-screen'>
-            <div className="flex h-12 md:h-20 items-center bg-fuchsia-400 justify-center">
+            <div className="flex h-12 md:h-20 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
                 <h1 className="text-xl sm:text-3xl font-semibold text-white text-center">Chọn người tình</h1>
             </div>
             <div className="w-full rounded-md">

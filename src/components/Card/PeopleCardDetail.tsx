@@ -21,7 +21,7 @@ export default function PeopleCardDetail() {
   return (
     <section className="relative w-full min-h-screen">
       <div className="bg-white">
-        <div className="flex h-12 items-center bg-fuchsia-400 justify-center">
+        <div className="flex h-12 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
           <Link to={ROUTERS_PATHS.HOME} className="absolute left-3">
             <IoIosArrowBack size={30} color="white" />
           </Link>
@@ -33,17 +33,17 @@ export default function PeopleCardDetail() {
           <div className="flex w-full items-center gap-2 justify-evenly mt-5">
             <div className="flex items-center gap-1" onClick={() => setTab('info')}>
               <GoInfo color="#f905e5" />
-              <h2 style={{ color: "#f905e5" }}>{`info`}</h2>
+              <h2 className='text-[#f905e5]'>{`info`}</h2>
             </div>
             <div className="flex items-center gap-1" onClick={() => setTab('images')}>
               <FaRegImage color="#e74c3c" />
-              <h2 style={{ color: "#e74c3c" }}>
+              <h2 className='text-[#e74c3c]'>
                 {`images`} {`(${item?.images_list.length ?? 0})`}{" "}
               </h2>
             </div>
             <div className="flex items-center gap-1" onClick={() => setTab('reports')}>
               <HiSpeakerphone color="#e74c3c" />
-              <h2 style={{ color: "#e74c3c" }}>
+              <h2 className='text-[#e74c3c]'>
                 {`reports`} {`(${reports?.length ?? 0})`}
               </h2>
             </div>
