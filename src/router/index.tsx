@@ -68,12 +68,16 @@ const routes: IRoutesState[] = [
   },
   {
     path: ROUTERS_PATHS.ALL,
-    guard: AuthGuard,
+    // guard: AuthGuard,
     layout: MainLayout,
     routes: [
       {
         path: ROUTERS_PATHS.HOME,
         component: lazy(() => import('../components/Home/Home'))
+      },
+      {
+        path: ROUTERS_PATHS.VOTE,
+        component: lazy(() => import('../components/Vote'))
       },
       {
         path: ROUTERS_PATHS.INFO,

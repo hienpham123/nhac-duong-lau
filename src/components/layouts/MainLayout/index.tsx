@@ -19,7 +19,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
           {children}
         </Box>
       </div>
-      {[ROUTERS_PATHS.HOME, ROUTERS_PATHS.INFO, ROUTERS_PATHS.CHOSEN_PEOPELE].includes(location.pathname) && <SideBar />}
+      {[ROUTERS_PATHS.HOME, ROUTERS_PATHS.INFO, ROUTERS_PATHS.CHOSEN_PEOPELE, ROUTERS_PATHS.VOTE].includes(location.pathname) && <SideBar />}
     </Box>
   );
 };
