@@ -1,13 +1,10 @@
 import React, { useState } from "react"
 import imageBg from '../../assets/images/background.jpg'
-import TextField from '@mui/material/TextField';
-import { InputAdornment } from "@mui/material";
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import ButtonShared from "../ButtonShared";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { useLoginMutation } from "../services/authentication.service";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,7 +17,7 @@ const Login = () => {
   const handleNavigateRegister = () => {
     navigate('/register')
   }
-  
+
   const togglePassword = () => {
     setOpenVisibility(!openVisibility)
   }
@@ -42,7 +39,7 @@ const Login = () => {
   }
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center justify-around" style={{background: 'linear-gradient(-45deg,#fa0000,#f039b2)'}}>
+    <div className="relative w-full min-h-screen flex flex-col items-center justify-around" style={{ background: 'linear-gradient(-45deg,#fa0000,#f039b2)' }}>
       <div className="flex flex-col items-center w-80">
         <img
           className="w-[80px] h-[80px] rounded-full border-1"
@@ -59,48 +56,35 @@ const Login = () => {
             setUserName(e.target.value)
           }}
         />
-        <TextField 
-          type={openVisibility ? 'text' : 'password'}
-          fullWidth 
-          placeholder="Vui lòng nhập mật khẩu đăng nhập" 
-          sx={{
-            background: 'white',
-            borderRadius: '9999px',
-            border: 'none !important',
-            marginTop: '30px',
-            height: '50px',
-            '& .MuiInputBase-input': {
-              textAlign: 'center', 
-              height: '100%'
-            },
-          }}
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value)
-          }}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                {openVisibility ? (
-                  <VisibilityOffIcon onClick={togglePassword} />
-                ) : (
-                  <VisibilityIcon onClick={togglePassword} />
-                )}
-              </InputAdornment>
-            ),
-            style: { textAlign: 'center' },
-          }}
-        />   
+        <div className="relative mt-8 w-80">
+          <input
+            type={openVisibility ? 'text' : 'password'}
+            placeholder="Vui lòng nhập mật khẩu đăng nhập"
+            className="w-full bg-white rounded-full h-[50px] border-none focus:ring-0 text-center px-4"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer"
+            onClick={togglePassword}
+          >
+            {openVisibility ? (
+              <FaEyeSlash size={20} className="text-gray-500" />
+            ) : (
+              <FaEye size={20} className="text-gray-500" />
+            )}
+          </div>
+        </div>
         <div className="w-full text-white mt-2 text-right cursor-pointer">Quên mật khẩu?</div>
         <div className="text-white mt-2 cursor-pointer" onClick={handleNavigateRegister}>Không có tài khoản? Đăng ký ngay</div>
-        <ButtonShared 
-          loading={false} 
-          label="Đăng nhập" 
+        <ButtonShared
+          loading={false}
+          label="Đăng nhập"
           sx={{
-            background: 'linear-gradient(90deg, #c24491, #775fd9)', 
+            background: 'linear-gradient(90deg, #c24491, #775fd9)',
             borderRadius: '9999px',
             marginTop: '50px'
-          }} 
+          }}
           fullWidth
           onClick={handleLogin}
         />
