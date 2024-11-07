@@ -25,7 +25,7 @@ export interface IRoutesState {
   role?: string;
 }
 export const renderRoutes = (routes: IRoutesState[]) => (
-  <React.Fragment>
+  <React.Fragment >
 
     <Suspense fallback={<LoadingScreen />}>
       <Routes>

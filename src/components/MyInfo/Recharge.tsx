@@ -34,9 +34,9 @@ const Recharge = () => {
 
                     <h1 className="text-xl lg:text-3xl text-white">Nạp tiền</h1>
 
-                    <h1 className="absolute right-0 text-base text-white lg:text-2xl">
+                    <button className="absolute right-0 text-base text-white lg:text-2xl">
                         Lịch sử nạp tiền
-                    </h1>
+                    </button>
 
                 </div>
                 <h1 className="text-2xl text-gray-300">Số dư hiện tại (K)</h1>
@@ -50,7 +50,7 @@ const Recharge = () => {
                 </h1>
                 <input
                     onChange={(e) => setMoney(e.target.value)}
-                    type="text"
+                    type="number"
                     className="w-full p-3 mt-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
                     placeholder="Vui lòng nhập số tiền nạp"
                 />

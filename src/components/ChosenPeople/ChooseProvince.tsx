@@ -25,6 +25,7 @@ export default function ChooseProvince() {
                 {(items ?? []).map((item) => {
                     return (
                         <Link
+                            key={item.id}
                             to={ROUTERS_PATHS.CHOOSEN_PROFILE.replace(
                                 ":province",
                                 item.province_id.toString()

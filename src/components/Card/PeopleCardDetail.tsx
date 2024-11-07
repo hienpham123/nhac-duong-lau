@@ -111,7 +111,7 @@ export default function PeopleCardDetail() {
       {tab === 'images' && <>
         <div className='grid grid-cols-2 gap-2'>
           {(item ? item?.images_list : []).map(item => {
-            return <img src={item.image} alt="" className='object-cover w-full h-full' />
+            return <img src={item.image} key={item.image} alt="" className='object-cover w-full h-full' />
           })}
         </div>
       </>}
@@ -122,7 +122,7 @@ export default function PeopleCardDetail() {
         </div>
         <div className='bg-white w-full p-3 flex flex-col gap-3'>
           {reports.map(item => {
-            return <div className='flex gap-3'>
+            return <div key={item.id} className='flex gap-3'>
               <img
                 className="min-w-[31px] md:min-w-[67px] h-[31px] md:h-[67px] object-cover"
                 src={item.author_image} alt=""

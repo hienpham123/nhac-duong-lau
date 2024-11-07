@@ -64,7 +64,7 @@ export default function WatchVideo() {
                 </Tabs>
             </Box>
             <div className='grid grid-cols-2 gap-2 p-2'>
-                {videos.length && videos.map(video => <Link to={ROUTERS_PATHS.VIDEO_DETAIL.replace(':id', video.id.toString()) }><VideoCard video={video} /></Link>)}
+                {videos.length && videos.map(video => <Link key={video.id} to={ROUTERS_PATHS.VIDEO_DETAIL.replace(':id', video.id.toString()) }><VideoCard video={video} /></Link>)}
             </div>
         </section>
     )

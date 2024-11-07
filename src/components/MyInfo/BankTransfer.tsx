@@ -14,9 +14,19 @@ const BankTransfer = () => {
             bankCode: 970422,
             accountNumber: 2023032003,
             accountName: "PHAM THE HIEN",
+            templateID: 'tEEZ6yB',
             amount: amount,
             addInfo: "Nap tiền",
+
         },
+        SHINHAN: {
+            bankCode: 970424,
+            accountNumber: 70028418343,
+            accountName: "PHAM THE HIEN",
+            templateID: 'PVHE4Td',
+            amount: amount,
+            addInfo: "Nap tiền",
+        }
     };
 
     const [method, setMethod] = useState({});
@@ -34,14 +44,21 @@ const BankTransfer = () => {
             </div>
 
             {Object.keys(method).length ? (
-                <PaymentQRCode {...method}></PaymentQRCode>
+                <PaymentQRCode {...method} />
             ) : (
-                <div
-                    className="w-5/6 mx-auto bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] p-2 mt-5"
-                    onClick={() => setMethod(methods.MB)}
-                >
-                    <h1 className="text-center text-white">MB</h1>
-                </div>
+                <>
+                    {
+                        Object.keys(methods).map(key => {
+                            return <div
+                                key={key}
+                                className="w-5/6 mx-auto cursor-pointer bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] p-2 mt-5"
+                                onClick={() => setMethod(methods[key])}
+                            >
+                                <h1 className="text-center text-white">{key}</h1>
+                            </div>
+                        })
+                    }
+                </>
             )}
         </section>
     );
