@@ -53,6 +53,6 @@ table {
   margin: auto;
   background: #ebebeb;
   height: auto;
-  overflow: auto;
+  /* overflow: auto; */
   position: relative
 }

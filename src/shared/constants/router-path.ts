@@ -13,7 +13,9 @@ const ROUTERS_PATHS = {
   CHOOSEN_PROVINCE: '/chosen-province/:province',
   CHOOSEN_PROFILE: '/profile/:province/:id',
   VIDEO: '/video',
-  VIDEO_DETAIL: '/video/:id'
+  VIDEO_DETAIL: '/video/:id',
+  RECHARGE: '/recharge',
+  BANK_TRANSFER: '/bank-transfer',
 };
 
 export default ROUTERS_PATHS;

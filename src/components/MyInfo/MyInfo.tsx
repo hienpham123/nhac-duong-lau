@@ -42,10 +42,12 @@ export default function MyInfo() {
             </div>
 
             <div className='relative w-full h-[100px] bg-white rounded-xl mt-4 flex p-5 items-center justify-evenly'>
-                <div className='flex items-center gap-4'>
-                    <TfiWallet size={34} />
-                    <span className='font-semibold text-lg lg:text-xl'>Nạp Tiền</span>
-                </div>
+                <Link to={ROUTERS_PATHS.RECHARGE}>
+                    <div className='flex items-center gap-4'>
+                        <TfiWallet size={34} />
+                        <span className='font-semibold text-lg lg:text-xl'>Nạp Tiền</span>
+                    </div>
+                </Link>
                 <div className="h-10 w-[2px] bg-gray-300"></div>
                 <div className='flex items-center gap-4'>
                     <SlWallet size={34} />

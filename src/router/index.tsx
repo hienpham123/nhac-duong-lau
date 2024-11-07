@@ -68,7 +68,7 @@ const routes: IRoutesState[] = [
   },
   {
     path: ROUTERS_PATHS.ALL,
-    guard: AuthGuard,
+    // guard: AuthGuard,
     layout: MainLayout,
     routes: [
       {
@@ -114,6 +114,14 @@ const routes: IRoutesState[] = [
       {
         path: ROUTERS_PATHS.VIDEO_DETAIL,
         component: lazy(() => import('../components/WatchVideo/VideoContent'))
+      },
+      {
+        path: ROUTERS_PATHS.RECHARGE,
+        component: lazy(() => import('../components/MyInfo/Recharge'))
+      },
+      {
+        path: ROUTERS_PATHS.BANK_TRANSFER,
+        component: lazy(() => import('../components/MyInfo/BankTransfer'))
       },
     ]
   }
