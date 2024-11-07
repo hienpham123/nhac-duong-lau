@@ -7,7 +7,7 @@ const AllVote = () => {
         <div className="bg-white h-fit p-3 rounded-xl text-center">
           <img
             src="https://ispacedanang.edu.vn/wp-content/uploads/2024/05/hinh-anh-dep-ve-hoc-sinh-cap-3-1.jpg"
-            className="w-28 h-28 lg:w-full lg:h-full lg:w-full lg:h-full object-cover rounded-xl"
+            className="w-28 h-28 lg:w-full lg:h-full object-cover rounded-xl"
             alt="Bình chọn 1"
           />
           <p className="mt-2">Bình chọn 1</p>
