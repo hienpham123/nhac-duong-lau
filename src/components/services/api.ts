@@ -58,7 +58,7 @@ const baseQueryWithReAuth: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQue
   //   }
   if (result.error) {
     api.dispatch(
-      setToastMessage({ status: STATUS_TOAST.ERROR, message: result.error.data.message || '' })
+      setToastMessage({ status: STATUS_TOAST.ERROR, message: result.error.data && result.error.data.message ? result.error.data.message : '' })
     );
   }
   return result;

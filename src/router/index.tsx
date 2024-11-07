@@ -68,7 +68,7 @@ const routes: IRoutesState[] = [
   },
   {
     path: ROUTERS_PATHS.ALL,
-    // guard: AuthGuard,
+    guard: AuthGuard,
     layout: MainLayout,
     routes: [
       {
