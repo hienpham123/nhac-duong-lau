@@ -62,7 +62,7 @@ const Recharge = () => {
                             if (!money) {
                                 setShowNoti(true);
                             } else {
-                                navigate(ROUTERS_PATHS.BANK_TRANSFER)
+                                navigate(ROUTERS_PATHS.BANK_TRANSFER, { state: { amount: money } })
                             }
                         }}
                     >

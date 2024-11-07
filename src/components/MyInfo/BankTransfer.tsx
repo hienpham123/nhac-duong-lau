@@ -2,8 +2,24 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ROUTERS_PATHS from "../../shared/constants/router-path";
 import { IoIosArrowBack } from "react-icons/io";
+import PaymentQRCode from "../PaymentQRCode/PaymentQRCode";
+import { useLocation } from "react-router-dom";
 
 const BankTransfer = () => {
+    const location = useLocation();
+    const { amount } = location.state || {};
+
+    const methods = {
+        MB: {
+            bankCode: 970422,
+            accountNumber: 2023032003,
+            accountName: "PHAM THE HIEN",
+            amount: amount,
+            addInfo: "Nap tiền",
+        },
+    };
+
+    const [method, setMethod] = useState({});
 
     return (
         <section className="w-full min-h-screen">
@@ -16,9 +32,17 @@ const BankTransfer = () => {
                     <h1 className="text-xl lg:text-3xl text-white">Nạp tiền</h1>
                 </div>
             </div>
-            <div className='w-5/6 mx-auto bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] p-2 mt-5'>
-                <h1 className='text-center text-white'>Zalo</h1>
-            </div>
+
+            {Object.keys(method).length ? (
+                <PaymentQRCode {...method}></PaymentQRCode>
+            ) : (
+                <div
+                    className="w-5/6 mx-auto bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] p-2 mt-5"
+                    onClick={() => setMethod(methods.MB)}
+                >
+                    <h1 className="text-center text-white">MB</h1>
+                </div>
+            )}
         </section>
     );
 };
