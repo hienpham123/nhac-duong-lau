@@ -21,7 +21,7 @@ export default function PeopleCardDetail() {
   return (
     <section className="relative w-full min-h-screen">
       <div className="bg-white">
-        <div className="flex h-12 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
+        <div className="sticky top-0 z-50 flex h-12 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
           <Link to={ROUTERS_PATHS.HOME} className="absolute left-3">
             <IoIosArrowBack size={30} color="white" />
           </Link>
@@ -30,7 +30,7 @@ export default function PeopleCardDetail() {
         <div className="p-2">
           <h1 className="font-semibold text-lg">{item?.title}</h1>
 
-          <div className="flex w-full items-center gap-2 justify-evenly mt-5">
+          <div className="sticky top-0 z-10 flex w-full items-center gap-2 justify-evenly mt-5">
             <div className="flex items-center gap-1" onClick={() => setTab('info')}>
               <GoInfo color="#f905e5" />
               <h2 className='text-[#f905e5]'>{`info`}</h2>

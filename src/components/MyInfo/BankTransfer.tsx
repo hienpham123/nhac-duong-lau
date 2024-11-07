@@ -46,7 +46,7 @@ const BankTransfer = () => {
             {Object.keys(method).length ? (
                 <PaymentQRCode {...method} />
             ) : (
-                <>
+                <div className='flex flex-col gap-4 mt-4'>
                     {
                         Object.keys(methods).map(key => {
                             return <div
@@ -58,7 +58,7 @@ const BankTransfer = () => {
                             </div>
                         })
                     }
-                </>
+                </div>
             )}
         </section>
     );
