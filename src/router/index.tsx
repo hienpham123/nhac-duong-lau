@@ -76,6 +76,10 @@ const routes: IRoutesState[] = [
         component: lazy(() => import('../components/Home/Home'))
       },
       {
+        path: ROUTERS_PATHS.VOTE,
+        component: lazy(() => import('../components/Vote'))
+      },
+      {
         path: ROUTERS_PATHS.INFO,
         component: lazy(() => import('../components/MyInfo/MyInfo'))
       },

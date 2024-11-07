@@ -2,6 +2,7 @@ const ROUTERS_PATHS = {
   ALL: '*',
   LOGIN: '/login',
   HOME: '/',
+  VOTE: '/vote',
   INFO: '/info',
   FORGOT_PASSWORD: '/forgot-password',
   SETTINGS: '/settings',
