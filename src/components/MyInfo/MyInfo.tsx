@@ -11,8 +11,10 @@ import { LuUser2 } from 'react-icons/lu'
 import { HiOutlineFilm } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 import ROUTERS_PATHS from '../../shared/constants/router-path';
+import { useSelector } from 'react-redux'
 
 export default function MyInfo() {
+    const { currentUser } = useSelector((state: any) => state.currentUser)
     return (
         <div className="relative h-fit p-5">
             <div className="absolute top-0 right-0 w-full h-[300px] z-0 overflow-hidden">
@@ -36,8 +38,8 @@ export default function MyInfo() {
                     alt="Avatar"
                 />
                 <div className="flex gap-4 text-white mt-2">
-                    <h5 className="font-semibold text-2xl">ADMIN</h5>
-                    <h6 className="font-semibold text-xl">VIP 1</h6>
+                    <h5 className="font-semibold text-2xl">{currentUser.username}</h5>
+                    <h6 className="font-semibold text-xl">VIP {currentUser.membership_level}</h6>
                 </div>
             </div>
 
@@ -64,7 +66,7 @@ export default function MyInfo() {
                 </div>
                 <div className="h-px w-full bg-gray-300 mt-3"></div>
                 <div className='flex items-center justify-between mt-5'>
-                    <h2 style={{ color: "rgb(255, 0, 255)" }} className='font-semibold text-4xl'>0</h2>
+                    <h2 style={{ color: "rgb(255, 0, 255)" }} className='font-semibold text-4xl'>{currentUser.balance}</h2>
                     <div className='flex items-center font-semibold gap-2'>
                         <div className='text-2xl'>{`(K VND)`}</div>
                         <IoRefreshCircleOutline size={34} color="rgb(255, 0, 255)" />
