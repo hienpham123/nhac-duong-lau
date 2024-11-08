@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import { GoInfo } from "react-icons/go";
 import { FaHeart, FaRegImage } from "react-icons/fa";
@@ -8,15 +8,27 @@ import { TiLocation } from "react-icons/ti";
 import { MdAccessTimeFilled } from "react-icons/md";
 import { Link, useParams } from "react-router-dom";
 import ROUTERS_PATHS from "../../shared/constants/router-path";
-import { data_lists } from "../../../mock/list-data";
 import { reports_list } from "../../../mock/reports";
+import { useLazyGetPeopleDetailQuery } from "../services/people.service";
+import { IPeopleCard } from "./PeopleCard";
 
 export default function PeopleCardDetail() {
   const [tab, setTab] = useState("info");
   const { id } = useParams();
 
-  const item = data_lists.find(item => id && item.id == +id)
   const reports = reports_list.filter(item => id && item.related_people == +id)
+
+  const [getPeopleDetail] = useLazyGetPeopleDetailQuery()
+
+  const [data, setData] = useState<IPeopleCard>()
+
+  const getPeopleDetails = async () => {
+    const people = await getPeopleDetail(id).unwrap()
+    setData(people)
+  }
+  useEffect(() => {
+    getPeopleDetails()
+  }, [])
 
   return (
     <section className="relative w-full min-h-screen">
@@ -28,20 +40,20 @@ export default function PeopleCardDetail() {
           <h1 className="text-xl text-white text-center">Nạp tiền</h1>
         </div>
         <div className="p-2">
-          <h1 className="font-semibold text-lg">{item?.title}</h1>
+          <h1 className="font-semibold text-lg">{data?.description}</h1>
 
           <div className="sticky top-0 z-10 flex w-full items-center gap-2 justify-evenly mt-5">
-            <div className="flex items-center gap-1" onClick={() => setTab('info')}>
+            <div className="flex items-center gap-1 cursor-pointer" onClick={() => setTab('info')}>
               <GoInfo color="#f905e5" />
               <h2 className='text-[#f905e5]'>{`info`}</h2>
             </div>
-            <div className="flex items-center gap-1" onClick={() => setTab('images')}>
+            <div className="flex items-center gap-1 cursor-pointer" onClick={() => setTab('images')}>
               <FaRegImage color="#e74c3c" />
               <h2 className='text-[#e74c3c]'>
-                {`images`} {`(${item?.images_list.length ?? 0})`}{" "}
+                {`images`} {`(${data?.images_list.length ?? 0})`}{" "}
               </h2>
             </div>
-            <div className="flex items-center gap-1" onClick={() => setTab('reports')}>
+            <div className="flex items-center gap-1 cursor-pointer" onClick={() => setTab('reports')}>
               <HiSpeakerphone color="#e74c3c" />
               <h2 className='text-[#e74c3c]'>
                 {`reports`} {`(${reports?.length ?? 0})`}
@@ -56,7 +68,7 @@ export default function PeopleCardDetail() {
           <div className="bg-white">
             <div className="relative overflow-hidden">
               <img
-                src={item?.img_url}
+                src={data?.image_url}
                 alt=""
                 className="w-full h-full object-cover"
               />
@@ -65,21 +77,21 @@ export default function PeopleCardDetail() {
 
             <div className="flex flex-col gap-1 mt-3 px-2">
               <div className="flex gap-1">
-                {Array.from({ length: item ? item?.vote : 0 }).map((_, index) => (
+                {Array.from({ length: data ? data?.vote : 0 }).map((_, index) => (
                   <FaHeart key={index} size={20} color={"rgb(255, 0, 255)"} />
                 ))}
               </div>
               <div className="flex justify-start items-center gap-1">
                 <IoWalletSharp size={18} color={"rgb(255, 0, 255)"} />
-                {item?.price}
+                {data?.price}
               </div>
               <div className="flex justify-start items-center gap-1">
                 <TiLocation size={20} color={"rgb(255, 0, 255)"} />
-                {item?.province}
+                {data?.province_name}
               </div>
               <div className="flex justify-start items-center gap-1">
                 <MdAccessTimeFilled size={20} color={"rgb(255, 0, 255)"} />
-                {item?.age}
+                {data?.age}
               </div>
             </div>
           </div>
@@ -95,23 +107,23 @@ export default function PeopleCardDetail() {
 
           <div className="flex gap-8 p-3">
             <h1 className="text-md min-w-16">Pass</h1>
-            <p>{item?.pass}</p>
+            <p>{data?.pass}</p>
           </div>
           <div className="bg-white flex gap-8 p-3">
             <h1 className="text-md min-w-16">Năm sinh</h1>
-            <p>{item?.year_of_birth}</p>
+            <p>{data?.year_of_birth}</p>
           </div>
           <div className="flex gap-8 p-3">
             <h1 className="text-md min-w-16">Cao (cm)</h1>
-            <p>{item?.height}</p>
+            <p>{data?.height}</p>
           </div>
         </>
       )}
 
       {tab === 'images' && <>
         <div className='grid grid-cols-2 gap-2'>
-          {(item ? item?.images_list : []).map(item => {
-            return <img src={item.image} key={item.image} alt="" className='object-cover w-full h-full' />
+          {(data ? data?.images_list : []).map(item => {
+            return <img src={item} key={item} alt="" className='object-cover w-full h-full' />
           })}
         </div>
       </>}

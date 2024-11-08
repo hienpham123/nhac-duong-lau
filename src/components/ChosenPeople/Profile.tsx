@@ -25,7 +25,7 @@ export default function Profile() {
 
     return (
         <section className="w-full h-full min-h-screen pb-10">
-            <div className="flex h-12 md:h-20 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
+            <div className="sticky top-0 flex h-12 md:h-20 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
                 <Link
                     to={ROUTERS_PATHS.CHOOSEN_PROVINCE.replace(
                         ":province",
@@ -53,7 +53,7 @@ export default function Profile() {
                     background:
                         "linear-gradient(to right, rgb(127, 87, 120), rgb(229, 194, 160))",
                 }}
-                className="w-max mx-auto text-base text-white text-center rounded-3xl px-3 py-2"
+                className="w-max mx-auto text-base text-white text-center rounded-3xl px-3 py-2 cursor-pointer"
                 onClick={() => setShowNoti(true)}
             >
                 Liên hệ với em ngay!
