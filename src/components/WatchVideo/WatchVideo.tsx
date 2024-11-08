@@ -34,7 +34,7 @@ export default function WatchVideo() {
                     {`Xem phim`}
                 </h1>
             </div>
-            <Box sx={{ width: '100%', borderTop: '1px solid #fff' }}>
+            <Box sx={{ width: '100%', borderTop: '1px solid #fff', position: 'sticky', top: 0 }}>
                 <Tabs
                     value={value}
                     onChange={handleChange}
@@ -64,7 +64,7 @@ export default function WatchVideo() {
                 </Tabs>
             </Box>
             <div className='grid grid-cols-2 gap-2 p-2'>
-                {videos.length && videos.map(video => <Link to={ROUTERS_PATHS.VIDEO_DETAIL.replace(':id', video.id.toString()) }><VideoCard video={video} /></Link>)}
+                {videos.length && videos.map(video => <Link key={video.id} to={ROUTERS_PATHS.VIDEO_DETAIL.replace(':id', video.id.toString())}><VideoCard video={video} /></Link>)}
             </div>
         </section>
     )

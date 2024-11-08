@@ -18,4 +18,4 @@ export const extendedApi = baseApi.injectEndpoints({
   })
 });
 
-export const { useGetPeoplesQuery, useGetPeopleDetailQuery } = extendedApi;
+export const { useLazyGetPeoplesQuery, useLazyGetPeopleDetailQuery } = extendedApi;

@@ -26,43 +26,43 @@ const Recharge = () => {
 
     return (
         <section className="w-full min-h-screen">
-            <div className="flex flex-col items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center px-3 py-5 gap-5">
+            <div className="flex flex-col items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center px-3 py-5 gap-5 sm:gap-10">
                 <div className="flex items-center justify-center relative w-full">
                     <Link to={ROUTERS_PATHS.INFO} className="absolute left-0">
                         <IoIosArrowBack size={30} color="white" />
                     </Link>
 
-                    <h1 className="text-xl lg:text-3xl text-white">Nạp tiền</h1>
+                    <h1 className="text-xl sm:text-3xl font-semibold text-white">Nạp tiền</h1>
 
-                    <h1 className="absolute right-0 text-base text-white lg:text-2xl">
+                    <button className="absolute right-0 text-base font-semibold text-white sm:text-2xl">
                         Lịch sử nạp tiền
-                    </h1>
+                    </button>
 
                 </div>
-                <h1 className="text-2xl text-gray-300">Số dư hiện tại (K)</h1>
+                <h1 className="text-base sm:text-2xl text-gray-300">Số dư hiện tại (K)</h1>
 
                 <h1 className="text-4xl text-white underline">0K</h1>
             </div>
 
-            <div className="p-3 flex flex-col gap-2">
-                <h1 className="text-xl text-gray-400 font-semibold">
+            <div className="p-3 flex flex-col gap-4">
+                <h1 className="text-xl sm:text-3xl text-gray-500 font-semibold sm:mt-3">
                     Vui lòng nhập số tiền nạp
                 </h1>
                 <input
                     onChange={(e) => setMoney(e.target.value)}
-                    type="text"
-                    className="w-full p-3 mt-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    type="number"
+                    className="w-full p-3 sm:p-6 sm:mt-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
                     placeholder="Vui lòng nhập số tiền nạp"
                 />
 
-                <div className="w-5/6 mx-auto bg-blue-600 rounded-3xl p-2 mt-2">
+                <div className="w-5/6 mx-auto bg-blue-600 rounded-[40px] p-2 sm:p-5 mt-2">
                     <h1
-                        className="text-lg text-white text-center"
+                        className="text-lg sm:text-2xl font-semibold text-white text-center"
                         onClick={() => {
                             if (!money) {
                                 setShowNoti(true);
                             } else {
-                                navigate(ROUTERS_PATHS.BANK_TRANSFER)
+                                navigate(ROUTERS_PATHS.BANK_TRANSFER, { state: { amount: money } })
                             }
                         }}
                     >
@@ -70,8 +70,6 @@ const Recharge = () => {
                     </h1>
                 </div>
             </div>
-
-            <div className="w-full h-[0.5px] bg-slate-500 mt-5"></div>
 
             {showNofi && (
                 <div

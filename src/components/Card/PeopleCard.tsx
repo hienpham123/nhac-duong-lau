@@ -12,14 +12,16 @@ export interface IPeopleCard {
     address: string;
     vote: number;
     age: number;
-    province: string;
+    province_name: string;
     price: string;
-    img_url: string;
+    image_url: string;
     description: string;
     pass: string;
     height: string;
     year_of_birth: string;
-    images_list: { image: string }[];
+    images_list: string[];
+    province_id: number;
+    code: string;
 }
 
 
@@ -28,14 +30,15 @@ interface IPeopleCardProps {
 }
 
 export default function PeopleCard({ data }: IPeopleCardProps) {
+
     return (
         <Link to={ROUTERS_PATHS.DETAILS.replace(':id', data.id.toString())}>
-            <div className='bg-white w-fit p-3 rounded-lg flex flex-col gap-1 lg:gap-2'>
-                <h2 className='line-clamp-1 font-bold'>{data.title}</h2>
+            <div className='bg-white w-full p-3 rounded-lg flex flex-col gap-1 lg:gap-2'>
+                <h2 className='line-clamp-1 font-bold'>{data.description}</h2>
                 <div className='relative overflow-hidden'>
                     <div className="relative w-full pb-[100%]">
                         <img
-                            src={data.img_url}
+                            src={data.image_url}
                             className="absolute top-0 left-0 w-full h-full object-cover"
                             alt=""
                         />
@@ -53,7 +56,7 @@ export default function PeopleCard({ data }: IPeopleCardProps) {
                 </div>
                 <div className='flex justify-start items-center gap-1'>
                     <TiLocation size={20} color={'rgb(255, 0, 255)'} />
-                    {data.province}
+                    {data.province_name}
                 </div>
                 <div className='flex justify-start items-center gap-1'>
                     <IoWalletSharp size={18} color={'rgb(255, 0, 255)'} />

@@ -37,7 +37,7 @@ const Register = () => {
         password: password,
       }
       const res: any = await registerApi(params)
-      if(res.message === 'Đăng ký thành công') {
+      if(res.data.message === 'Đăng ký thành công') {
         const resLogin = await loginApi(paramsLogin)
         if (resLogin.data) {
           login(resLogin.data);
