@@ -135,6 +135,10 @@ const routes: IRoutesState[] = [
         path: ROUTERS_PATHS.SERVICE_ONLINE,
         component: lazy(() => import('../components/ServiceOnline/ServiceOnline'))
       },
+      {
+        path: ROUTERS_PATHS.HISTORY_VOTE,
+        component: lazy(() => import('../components/HistoryVote/HistoryVote'))
+      },
     ]
   }
 ];

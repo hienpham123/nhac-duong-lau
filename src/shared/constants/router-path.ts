@@ -19,6 +19,7 @@ const ROUTERS_PATHS = {
   SYSTEM_NOTIFICATION: '/system-notification',
   MONEY_LOG: '/money-log',
   SERVICE_ONLINE: '/service-online',
+  HISTORY_VOTE: '/history-vote',
 };
 
 export default ROUTERS_PATHS;
