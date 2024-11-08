@@ -3,6 +3,7 @@ const ROUTERS_PATHS = {
   LOGIN: '/login',
   HOME: '/',
   VOTE: '/vote',
+  VOTE_DETAIL: '/vote/:id',
   INFO: '/info',
   FORGOT_PASSWORD: '/forgot-password',
   SETTINGS: '/settings',
