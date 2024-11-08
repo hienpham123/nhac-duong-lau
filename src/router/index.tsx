@@ -25,7 +25,7 @@ export interface IRoutesState {
   role?: string;
 }
 export const renderRoutes = (routes: IRoutesState[]) => (
-  <React.Fragment>
+  <React.Fragment >
 
     <Suspense fallback={<LoadingScreen />}>
       <Routes>
@@ -68,7 +68,7 @@ const routes: IRoutesState[] = [
   },
   {
     path: ROUTERS_PATHS.ALL,
-    // guard: AuthGuard,
+    guard: AuthGuard,
     layout: MainLayout,
     routes: [
       {
@@ -88,7 +88,7 @@ const routes: IRoutesState[] = [
         component: lazy(() => import('../components/MyInfo/Settings'))
       },
       {
-        path: ROUTERS_PATHS.ACCOUNT_INFO1,
+        path: ROUTERS_PATHS.PERSONAL_REPORT,
         component: lazy(() => import('../components/MyInfo/AccountInfo'))
       },
       {
@@ -122,6 +122,18 @@ const routes: IRoutesState[] = [
       {
         path: ROUTERS_PATHS.BANK_TRANSFER,
         component: lazy(() => import('../components/MyInfo/BankTransfer'))
+      },
+      {
+        path: ROUTERS_PATHS.SYSTEM_NOTIFICATION,
+        component: lazy(() => import('../components/SystemNotifications/SystemNotifications'))
+      },
+      {
+        path: ROUTERS_PATHS.MONEY_LOG,
+        component: lazy(() => import('../components/MoneyLog/Moneylog'))
+      },
+      {
+        path: ROUTERS_PATHS.SERVICE_ONLINE,
+        component: lazy(() => import('../components/ServiceOnline/ServiceOnline'))
       },
     ]
   }

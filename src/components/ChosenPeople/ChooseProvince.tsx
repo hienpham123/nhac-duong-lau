@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { choosen_province_list } from "../../../mock/choosen-province";
 import ROUTERS_PATHS from "../../shared/constants/router-path";
 import { IoIosArrowBack } from "react-icons/io";
+import { useLazyGetPeoplesQuery } from "../services/people.service";
+import { IPeopleCard } from "../Card/PeopleCard";
 
 export default function ChooseProvince() {
     const { province } = useParams();
 
-    const items = choosen_province_list.filter(
-        (item) => province && item.province_id == +province
-    );
+    const [getPeoples] = useLazyGetPeoplesQuery()
+
+    const [data, setData] = useState<IPeopleCard[]>([])
+    
+    const getAllPeoples = async () => {
+        const people = await getPeoples('').unwrap()
+        const _people = people.filter(
+            (item) => province && item.province_id == +province
+        )
+        setData(_people)
+    }
+    useEffect(() => {
+        getAllPeoples()
+    }, [])
 
     return (
         <section className="w-full h-full min-h-screen">
@@ -18,13 +30,14 @@ export default function ChooseProvince() {
                     <IoIosArrowBack size={30} color="white" />
                 </Link>
                 <h1 className="text-xl sm:text-3xl font-semibold text-white text-center">
-                    {items.length ? items[0].province_name : ''}
+                    {data.length ? data[0].province_name : ''}
                 </h1>
             </div>
             <div className="grid grid-cols-2 gap-2 rounded-lg p-2">
-                {(items ?? []).map((item) => {
+                {(data ?? []).map((item) => {
                     return (
                         <Link
+                            key={item.id}
                             to={ROUTERS_PATHS.CHOOSEN_PROFILE.replace(
                                 ":province",
                                 item.province_id.toString()

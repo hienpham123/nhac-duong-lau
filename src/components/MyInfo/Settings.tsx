@@ -5,8 +5,10 @@ import { MdNavigateNext } from "react-icons/md";
 import { TiTick } from "react-icons/ti";
 import useAuth from "../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Settings() {
+    const { currentUser } = useSelector((state: any) => state.currentUser)
     const navigate = useNavigate();
     const { logout } = useAuth()
     const location = useLocation();
@@ -21,6 +23,8 @@ export default function Settings() {
         passWordPay: false,
         language: false,
     });
+
+    const [name, setName] = React.useState(currentUser.first_name)
 
     const handleLogout = () => {
         logout()
@@ -51,9 +55,13 @@ export default function Settings() {
             passWordPay: () => handleOpen("settings"),
             language: () => handleOpen("settings"),
         };
-    
+
         Object.keys(isOpen).forEach((key) => isOpen[key] && backActions[key]());
     };
+
+    const handleSaveName = () => {
+
+    }
     
     return (
         <section className="relative w-full min-h-screen">
@@ -64,7 +72,7 @@ export default function Settings() {
                 <h1 className="text-xl text-white text-center">Cài đặt</h1>
                 {isOpen.trueName && (
                     <div className="absolute right-3">
-                        <h3 className="text-white">Lưu</h3>
+                        <h3 className="text-white" onClick={handleSaveName}>Lưu</h3>
                     </div>
                 )}
             </div>
@@ -102,7 +110,7 @@ export default function Settings() {
                         </div>
                     </div>
 
-                    <div className="w-5/6 mx-auto bg-fuchsia-400 rounded-3xl p-2" onClick={handleLogout}>
+                    <div className="w-5/6 mx-auto bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] rounded-3xl p-2" onClick={handleLogout}>
                         <h1 className="text-xl text-white text-center">Đăng xuất</h1>
                     </div>
                 </div>
@@ -126,7 +134,10 @@ export default function Settings() {
                         onClick={() => handleOpen("trueName")}
                     >
                         <h1 className="font-semibold">Tên thật</h1>
-                        <MdNavigateNext size={24} />
+                        <div className='flex items-center gap-2'>
+                            <h1>{name ? name : 'Không được thiết lập'}</h1>
+                            <MdNavigateNext size={24} />
+                        </div>
                     </div>
                     <div
                         className="flex justify-between border-b border-gray-300 pb-2 px-3"
@@ -151,6 +162,8 @@ export default function Settings() {
                         <div className="flex justify-between items-center p-3">
                             <h1 className="font-semibold">Tên</h1>
                             <input
+                                value={name ? name : ''}
+                                onChange={(e) => setName(e.target.value)}  
                                 type="text"
                                 className="float-right border border-gray-300 rounded-lg p-2 w-full ml-2 focus:outline-none focus:ring-2 focus:ring-fuchsia-400"
                                 placeholder="Vui lòng nhập tên thật của bạn"
