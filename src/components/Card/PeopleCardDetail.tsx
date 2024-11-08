@@ -24,7 +24,16 @@ export default function PeopleCardDetail() {
     const people = await getPeopleDetail(id).unwrap()
     setData(people)
   }
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   useEffect(() => {
+    scrollToTop()
     getPeopleDetails()
   }, [])
 
