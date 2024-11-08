@@ -4,8 +4,9 @@ import { IoIosArrowBack, IoMdClose } from "react-icons/io";
 import { MdNavigateNext } from "react-icons/md";
 import { TiTick } from "react-icons/ti";
 import useAuth from "../hooks/useAuth";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import ROUTERS_PATHS from "../../shared/constants/router-path";
 
 export default function Settings() {
     const { currentUser } = useSelector((state: any) => state.currentUser);
@@ -159,13 +160,15 @@ export default function Settings() {
                         <h1 className="font-semibold text-base sm:text-2xl">Giới tính</h1>
                         <MdNavigateNext size={24} />
                     </div>
-                    <div
-                        className="flex justify-between border-b border-gray-300 pb-3 px-2 sm:p-4 cursor-pointer"
-                        onClick={() => handleOpen("bankCard")}
-                    >
-                        <h1 className="font-semibold text-base sm:text-2xl">Liên kết thông tin thẻ ngân hàng</h1>
-                        <MdNavigateNext size={24} />
-                    </div>
+                    <Link to={ROUTERS_PATHS.BIND_CARD}>
+                        <div
+                            className="flex justify-between border-b border-gray-300 pb-3 px-2 sm:p-4 cursor-pointer"
+                            onClick={() => handleOpen("bankCard")}
+                        >
+                            <h1 className="font-semibold text-base sm:text-2xl">Liên kết thông tin thẻ ngân hàng</h1>
+                            <MdNavigateNext size={24} />
+                        </div>
+                    </Link>
                 </div>
             )}
 
@@ -312,7 +315,7 @@ export default function Settings() {
                 <div className="flex items-center justify-between py-1 px-2 sm:py-3">
                     <IoMdClose className="cursor-pointer" onClick={toggleVisibility} />
                     <h1>Chọn hình đại diện</h1>
-                    <h1 className="cursor-pointer"  onClick={toggleVisibility}>Xác nhận</h1>
+                    <h1 className="cursor-pointer" onClick={toggleVisibility}>Xác nhận</h1>
                 </div>
                 <div className='h-[1px] bg-gray-400 w-full'></div>
                 <div className="grid grid-cols-5 sm:grid-cols-4 gap-2 p-4 mt-2 max-h-[400px] overflow-auto">

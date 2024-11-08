@@ -20,6 +20,8 @@ const ROUTERS_PATHS = {
   MONEY_LOG: '/money-log',
   SERVICE_ONLINE: '/service-online',
   HISTORY_VOTE: '/history-vote',
+  SET_BANK: '/set-bank',
+  BIND_CARD: '/bind-card',
 };
 
 export default ROUTERS_PATHS;
