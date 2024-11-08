@@ -11,10 +11,10 @@ interface historyPeriodType {
 }
 
 const valueButton = [
-  {title: 'A', key: 'A'},
-  {title: 'B', key: 'B'},
-  {title: 'C', key: 'C'},
-  {title: 'D', key: 'D'},
+  { title: 'A', key: 'A' },
+  { title: 'B', key: 'B' },
+  { title: 'C', key: 'C' },
+  { title: 'D', key: 'D' },
 ]
 
 const VoteDetail = () => {
@@ -28,19 +28,19 @@ const VoteDetail = () => {
   const [buttonChoose, setButtonChoose] = useState<string[]>([])
   const [money, setMoney] = useState<string | number>('')
 
-  const getData = () => {}
+  const getData = () => { }
 
   const toggleItem = () => {
     setIsOpen((prev) => !prev);
   };
 
   const historyPeriodRows = useMemo(() => {
-    return historyPeriod.length > 0 ? 
+    return historyPeriod.length > 0 ?
       historyPeriod.map((item: historyPeriodType, index: number) => {
         return (
           <tr key={index}>
             <td className="text-black font-bold text-xl md:text-2xl">{item.historyPeriod}</td>
-            <td style={{float: 'right'}}>
+            <td style={{ float: 'right' }}>
               {item.value.map((i: string, k: number) => {
                 return (
                   <span className={`text-black font-bold text-xl md:text-2xl ${k === 0 ? 'mr-2' : ''}`} key={k}>{i}</span>
@@ -64,7 +64,6 @@ const VoteDetail = () => {
         return arr
       }
     });
-    console.log("🚀 ~ handleClickVote ~ buttonChoose:", buttonChoose)
   }, []);
 
   useEffect(() => {
@@ -74,7 +73,7 @@ const VoteDetail = () => {
   useEffect(() => {
     if (timeLeft < 0) {
       const _historyPeriod: historyPeriodType[] = [...historyPeriod]
-      _historyPeriod.push({historyPeriod: numberPeriod, value: valuePeriod})
+      _historyPeriod.push({ historyPeriod: numberPeriod, value: valuePeriod })
       setTimeLeft(120)
       setNumberPeriod((prev) => prev + 1)
       setValuePeriod(getRandomTwo(['A', 'B', 'C', 'D']))
@@ -101,8 +100,8 @@ const VoteDetail = () => {
 
       <div className="p-5 flex justify-between items-center bg-white">
         <div className="flex items-center">
-          <img 
-            src="https://ispacedanang.edu.vn/wp-content/uploads/2024/05/hinh-anh-dep-ve-hoc-sinh-cap-3-1.jpg" 
+          <img
+            src="https://ispacedanang.edu.vn/wp-content/uploads/2024/05/hinh-anh-dep-ve-hoc-sinh-cap-3-1.jpg"
             className="w-20 h-20 object-cover"
           />
 
@@ -111,7 +110,7 @@ const VoteDetail = () => {
         <div className="text-red-600 text-xl md:text-4xl">
           {formatTime(timeLeft)}
         </div>
-          
+
       </div>
       <div className="bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] h-[1px] w-[80%] mx-auto"></div>
 
@@ -133,10 +132,10 @@ const VoteDetail = () => {
         </button>
         {isOpen && (
           <div className="p-4 bg-white absolute z-10 w-full h-fit">
-            <table style={{width: '80%'}}>
+            <table style={{ width: '80%' }}>
               <tr className="w-full">
-                <td className="text-black font-bold text-xl md:text-2xl" style={{width: '30%'}}>Số kỳ</td>
-                <td className="text-black font-bold text-xl md:text-2xl" style={{width: '70%', textAlign: 'right'}}>Kết quả bình chọn </td>
+                <td className="text-black font-bold text-xl md:text-2xl" style={{ width: '30%' }}>Số kỳ</td>
+                <td className="text-black font-bold text-xl md:text-2xl" style={{ width: '70%', textAlign: 'right' }}>Kết quả bình chọn </td>
               </tr>
               {historyPeriodRows}
             </table>
@@ -149,7 +148,7 @@ const VoteDetail = () => {
         <span className="flex items-center cursor-pointer text-red-500 text-xl font-bold"><CiCircleMore /> Lịch sử bình chọn</span>
       </div>
       <div className="bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] h-[1px] w-[80%] mx-auto"></div>
-      
+
       <div className="flex justify-between p-5">
         {valueButton.map((item) => {
           const isCheck = buttonChoose.includes(item.key)
@@ -160,10 +159,10 @@ const VoteDetail = () => {
       </div>
       <div className="absolute bottom-0 w-full">
         {isOpenInfo && (
-          <div className="flex flex-col justify-center px-5 bg-white w-full h-28" style={{boxShadow: '0 0 1.333vw 0 #cacaca'}}>
+          <div className="flex flex-col justify-center px-5 bg-white w-full h-28" style={{ boxShadow: '0 0 1.333vw 0 #cacaca' }}>
             <div className="flex justify-between">
               <span>
-                Hiện tại số đã chọn: 
+                Hiện tại số đã chọn:
                 {buttonChoose.length > 0 ? (
                   <span className="ml-3 text-red-500">
                     {buttonChoose.reduce((acc, cur, index, arr) => {
@@ -174,14 +173,14 @@ const VoteDetail = () => {
                   <span></span>
                 )}
               </span>
-              <IoIosArrowDown size={24} onClick={() => setIsOpenInfo(false)}/>
+              <IoIosArrowDown size={24} onClick={() => setIsOpenInfo(false)} />
             </div>
             <div className="flex justify-between">
               <div>
                 <span>
                   Số điểm bình chọn
                 </span>
-                <input className="ml-2" type="text" placeholder="Vui lòng nhập số tiền" style={{outline: 'none'}} value={money} onChange={(e) => setMoney(e.target.value)} />
+                <input className="ml-2" type="text" placeholder="Vui lòng nhập số tiền" style={{ outline: 'none' }} value={money} onChange={(e) => setMoney(e.target.value)} />
               </div>
               <div>K</div>
             </div>
@@ -199,10 +198,10 @@ const VoteDetail = () => {
             </div>
           </div>
         )}
-        <div className="flex items-center justify-between bg-white w-full h-14 md:h-20 md:pr-10 pr-5" style={{boxShadow: '0 0 1.333vw 0 #cacaca'}}>
+        <div className="flex items-center justify-between bg-white w-full h-14 md:h-20 md:pr-10 pr-5" style={{ boxShadow: '0 0 1.333vw 0 #cacaca' }}>
           <div className="flex">
             <div>
-              <CiShoppingCart size={24} className="mx-auto"/>
+              <CiShoppingCart size={24} className="mx-auto" />
               <span>Bình chọn</span>
             </div>
             <div className="w-px h-10 bg-gray-400 mx-1"></div>

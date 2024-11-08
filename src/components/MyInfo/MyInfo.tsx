@@ -66,7 +66,7 @@ export default function MyInfo() {
                     </div>
                 </Link>
                 <div className="h-10 w-[2px] bg-gray-300"></div>
-                <Link to={ROUTERS_PATHS.SET_BANK}>
+                <Link to={ROUTERS_PATHS.WITH_DRAW}>
                     <div className="flex items-center gap-4">
                         <SlWallet size={34} />
                         <span className="font-semibold text-base lg:text-xl">Rút Tiền</span>

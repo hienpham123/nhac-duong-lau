@@ -23,6 +23,7 @@ const ROUTERS_PATHS = {
   HISTORY_VOTE: '/history-vote',
   SET_BANK: '/set-bank',
   BIND_CARD: '/bind-card',
+  WITH_DRAW: '/with-draw',
 };
 
 export default ROUTERS_PATHS;

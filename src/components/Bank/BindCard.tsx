@@ -33,11 +33,11 @@ export default function BindCard() {
 
     return (
         <section className="w-full min-h-screen relative">
-            <div className="flex h-12 md:h-20 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
+            <div className="flex h-16 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
                 <Link state={{ type: type }} to={ROUTERS_PATHS.SET_BANK} className="absolute left-3">
                     <IoIosArrowBack size={30} color="white" />
                 </Link>
-                <h1 className="text-xl sm:text-3xl font-semibold text-white text-center truncate">
+                <h1 className="text-xl sm:text-2xl font-semibold text-white text-center truncate">
                     Liên kết số tài khoản ngân hàng
                 </h1>
             </div>

@@ -1,10 +1,7 @@
 import React from 'react'
-import { FaHeart } from 'react-icons/fa'
 import { IoWalletSharp } from 'react-icons/io5'
-import { TiLocation } from 'react-icons/ti'
 import { Link } from 'react-router-dom'
 import ROUTERS_PATHS from '../../shared/constants/router-path'
-import { HiSpeakerphone } from 'react-icons/hi'
 
 export interface IPeopleCard {
     id: number;
@@ -21,6 +18,7 @@ export interface IPeopleCard {
     year_of_birth: string;
     images_list: string[];
     province_id: number;
+    sortAddress: string;
     code: string;
 }
 
@@ -30,10 +28,9 @@ interface IPeopleCardProps {
 }
 
 export default function PeopleCard({ data }: IPeopleCardProps) {
-
     return (
         <Link to={ROUTERS_PATHS.DETAILS.replace(':id', data.id.toString())}>
-            <div className='bg-white w-full p-3 rounded-lg flex flex-col gap-1 lg:gap-2'>
+            <div className='bg-white w-full p-2 sm:p-3 rounded-xl flex flex-col lg:gap-2 text-black'>
                 <h2 className='line-clamp-1 font-bold'>{data.description}</h2>
                 <div className='relative overflow-hidden'>
                     <div className="relative w-full pb-[100%]">
@@ -43,24 +40,28 @@ export default function PeopleCard({ data }: IPeopleCardProps) {
                             alt=""
                         />
                     </div>
-                    <h1 className='absolute top-2 left-4 w-full bg-[#f905e5] font-semibold text-sm text-white inline-block truncate leading-tight'>{data.address}</h1>
+                    <h1 className='absolute top-2 left-4 w-fit bg-[#f905e5] font-semibold text-sm text-white inline-block truncate leading-tight'>{data.sortAddress}</h1>
                 </div>
-                <div className='flex gap-1'>
-                    {Array.from({ length: data.vote }).map((_, index) => (
-                        <FaHeart key={index} size={20} color={'rgb(255, 0, 255)'} />
-                    ))}
-                </div>
-                <div className='flex justify-start items-center gap-1'>
-                    <HiSpeakerphone size={20} color={'rgb(255, 0, 255)'} />
-                    {data.age}
-                </div>
-                <div className='flex justify-start items-center gap-1'>
-                    <TiLocation size={20} color={'rgb(255, 0, 255)'} />
-                    {data.province_name}
-                </div>
-                <div className='flex justify-start items-center gap-1'>
-                    <IoWalletSharp size={18} color={'rgb(255, 0, 255)'} />
-                    {data.price}
+                <div className='flex flex-col sm:gap-2'>
+                    <div className='flex sm:gap-1 mt-2'>
+                        {Array.from({ length: 5 }).map((_, index) => (
+                            <img className='w-[20px] sm:w-[34px] aspect-[1/1]' src='https://www.vnphodendo.vip/img/ico-love.e61811a3.png' />
+                        ))}
+                    </div>
+                    <div className='flex justify-start items-center gap-1'>
+                        <img className='w-[16px] sm:w-[26px] aspect-[1/1]' src='https://www.vnphodendo.vip/img/ico-notice.bdf0d3b7.png' />
+                        {data.age}
+                    </div>
+                    <div className='flex justify-start items-center gap-1'>
+                        <img className='w-[16px] sm:w-[26px] aspect-[1/1]' src='https://www.vnphodendo.vip/img/ico-addr.95fc5c8d.png' />
+                        {data.province_name}
+                    </div>
+                    <div className='flex justify-start items-center gap-1'>
+                        <div className='w-[16px] sm:w-[26px] aspect-[1/1]'>
+                            <IoWalletSharp className='w-full h-full' color={"rgb(255, 0, 255)"} />
+                        </div>
+                        {data.price}
+                    </div>
                 </div>
             </div>
         </Link>

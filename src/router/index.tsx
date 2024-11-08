@@ -151,6 +151,10 @@ const routes: IRoutesState[] = [
         path: ROUTERS_PATHS.BIND_CARD,
         component: lazy(() => import('../components/Bank/BindCard'))
       },
+      {
+        path: ROUTERS_PATHS.WITH_DRAW,
+        component: lazy(() => import('../components/MyInfo/Withdraw'))
+      },
     ]
   }
 ];

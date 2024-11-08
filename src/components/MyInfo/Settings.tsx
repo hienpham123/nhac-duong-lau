@@ -69,7 +69,7 @@ export default function Settings() {
     return (
         <section className="relative w-full min-h-screen">
             <div className="flex h-12 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
-                <div onClick={() => handleBack()} className="absolute left-3">
+                <div onClick={() => handleBack()} className="absolute left-3 cursor-pointer">
                     <IoIosArrowBack size={30} color="white" />
                 </div>
                 <h1 className="text-xl text-white text-center">Cài đặt</h1>
@@ -311,7 +311,7 @@ export default function Settings() {
                         <img
                             onClick={() => setAvatar(url)}
                             key={id}
-                            className="w-[56px] h-[56px] sm:w-[91px] sm:h-[91px] object-cover rounded-full border-4 border-white"
+                            className="w-[56px] h-[56px] sm:w-[91px] sm:h-[91px] object-cover rounded-full border-4 border-white cursor-pointer"
                             src={url}
                             alt={`Avatar ${index + 1}`}
                         />

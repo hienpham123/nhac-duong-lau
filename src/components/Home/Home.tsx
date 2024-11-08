@@ -15,7 +15,7 @@ const Home = () => {
   }, [])
 
   return (
-    <div className="grid grid-cols-2 gap-x-2 gap-y-5 p-5 w-full min-h-screen">
+    <div className="grid grid-cols-2 gap-x-2 gap-y-5 p-2 sm:p-5 w-full min-h-screen">
       {data.map((item: IPeopleCard) => {
         return <PeopleCard key={item.id} data={item} />
       })}
