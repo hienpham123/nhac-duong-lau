@@ -19,7 +19,6 @@ export default function Settings() {
         information: type === "normalInfo" ? true : false,
         trueName: false,
         gender: false,
-        bankCard: false,
         passWordLogin: false,
         passWordPay: false,
         language: false,
@@ -44,7 +43,6 @@ export default function Settings() {
             settings: false,
             trueName: false,
             gender: false,
-            bankCard: false,
             passWordLogin: false,
             passWordPay: false,
             language: false,
@@ -58,7 +56,6 @@ export default function Settings() {
             information: () => type === "normalInfo" ? navigate("/info") : handleOpen("settings"),
             trueName: () => handleOpen("information"),
             gender: () => handleOpen("information"),
-            bankCard: () => handleOpen("information"),
             passWordLogin: () => handleOpen("settings"),
             passWordPay: () => handleOpen("settings"),
             language: () => handleOpen("settings"),
@@ -160,7 +157,7 @@ export default function Settings() {
                         <h1 className="font-semibold text-base sm:text-2xl">Giới tính</h1>
                         <MdNavigateNext size={24} />
                     </div>
-                    <Link to={ROUTERS_PATHS.BIND_CARD}>
+                    <Link to={ROUTERS_PATHS.SET_BANK} state={{ type: "normalInfo" }}>
                         <div
                             className="flex justify-between border-b border-gray-300 pb-3 px-2 sm:p-4 cursor-pointer"
                             onClick={() => handleOpen("bankCard")}
@@ -204,18 +201,6 @@ export default function Settings() {
                             Nữ giới
                         </label>
                     </div>
-                </div>
-            )}
-
-            {isOpen.bankCard && (
-                <div>
-                    <div className="bg-white w-full h-32 flex items-center justify-center">
-                        <div className="flex justify-center items-center gap-2">
-                            <FaPlus />
-                            <p>{`Thêm tài khoản ngân hàng`}</p>
-                        </div>
-                    </div>
-                    <p className="p-2 text-gray-500">{`Nhắc nhở: Vui lòng liên kết với ngân hàng thương mại lớn. Nếu cần sửa đổi, vui lòng liên hệ bộ phận chăm sóc khách hàng trực tuyến`}</p>
                 </div>
             )}
 

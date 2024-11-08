@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { IoIosArrowBack } from 'react-icons/io'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import ROUTERS_PATHS from '../../shared/constants/router-path'
 import { vietnamBanks } from '../../shared/constants/banks';
 
 export default function BindCard() {
+    const location = useLocation();
+    const { type } = location.state || {};
 
     const [isVisible, setIsVisible] = useState(false);
     const [bank, setBank] = useState('')
@@ -32,7 +34,7 @@ export default function BindCard() {
     return (
         <section className="w-full min-h-screen relative">
             <div className="flex h-12 md:h-20 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
-                <Link to={ROUTERS_PATHS.INFO} className="absolute left-3">
+                <Link state={{ type: type }} to={ROUTERS_PATHS.SET_BANK} className="absolute left-3">
                     <IoIosArrowBack size={30} color="white" />
                 </Link>
                 <h1 className="text-xl sm:text-3xl font-semibold text-white text-center truncate">
