@@ -3,11 +3,12 @@ const ROUTERS_PATHS = {
   LOGIN: '/login',
   HOME: '/',
   VOTE: '/vote',
+  VOTE_DETAIL: '/vote/:id',
   INFO: '/info',
   FORGOT_PASSWORD: '/forgot-password',
   SETTINGS: '/settings',
   REGISTER: '/register',
-  ACCOUNT_INFO1: '/account-info1',
+  PERSONAL_REPORT: '/personal-report',
   DETAILS: '/details/:id',
   CHOSEN_PEOPELE: '/chosen-people',
   CHOOSEN_PROVINCE: '/chosen-province/:province',
@@ -16,6 +17,12 @@ const ROUTERS_PATHS = {
   VIDEO_DETAIL: '/video/:id',
   RECHARGE: '/recharge',
   BANK_TRANSFER: '/bank-transfer',
+  SYSTEM_NOTIFICATION: '/system-notification',
+  MONEY_LOG: '/money-log',
+  SERVICE_ONLINE: '/service-online',
+  HISTORY_VOTE: '/history-vote',
+  SET_BANK: '/set-bank',
+  BIND_CARD: '/bind-card',
 };
 
 export default ROUTERS_PATHS;

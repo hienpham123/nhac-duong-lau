@@ -80,6 +80,10 @@ const routes: IRoutesState[] = [
         component: lazy(() => import('../components/Vote'))
       },
       {
+        path: ROUTERS_PATHS.VOTE_DETAIL,
+        component: lazy(() => import('../components/Vote/VoteDetail'))
+      },
+      {
         path: ROUTERS_PATHS.INFO,
         component: lazy(() => import('../components/MyInfo/MyInfo'))
       },
@@ -88,7 +92,7 @@ const routes: IRoutesState[] = [
         component: lazy(() => import('../components/MyInfo/Settings'))
       },
       {
-        path: ROUTERS_PATHS.ACCOUNT_INFO1,
+        path: ROUTERS_PATHS.PERSONAL_REPORT,
         component: lazy(() => import('../components/MyInfo/AccountInfo'))
       },
       {
@@ -122,6 +126,30 @@ const routes: IRoutesState[] = [
       {
         path: ROUTERS_PATHS.BANK_TRANSFER,
         component: lazy(() => import('../components/MyInfo/BankTransfer'))
+      },
+      {
+        path: ROUTERS_PATHS.SYSTEM_NOTIFICATION,
+        component: lazy(() => import('../components/SystemNotifications/SystemNotifications'))
+      },
+      {
+        path: ROUTERS_PATHS.MONEY_LOG,
+        component: lazy(() => import('../components/MoneyLog/Moneylog'))
+      },
+      {
+        path: ROUTERS_PATHS.SERVICE_ONLINE,
+        component: lazy(() => import('../components/ServiceOnline/ServiceOnline'))
+      },
+      {
+        path: ROUTERS_PATHS.HISTORY_VOTE,
+        component: lazy(() => import('../components/HistoryVote/HistoryVote'))
+      },
+      {
+        path: ROUTERS_PATHS.SET_BANK,
+        component: lazy(() => import('../components/Bank/Setbank'))
+      },
+      {
+        path: ROUTERS_PATHS.BIND_CARD,
+        component: lazy(() => import('../components/Bank/BindCard'))
       },
     ]
   }

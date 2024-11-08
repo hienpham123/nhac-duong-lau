@@ -1,0 +1,27 @@
+export const vietnamBanks = [
+    "Agribank",
+    "BIDV",
+    "Vietcombank",
+    "VietinBank",
+    "MB",
+    "Techcombank",
+    "ACB",
+    "Sacombank",
+    "Eximbank",
+    "VPBank",
+    "SHB",
+    "HDBank",
+    "LienVietPostBank",
+    "OCB",
+    "SeABank",
+    "KienLongBank",
+    "VIB",
+    "TPBank",
+    "Nam Á Bank",
+    "PG Bank",
+    "Saigonbank",
+    "MSB",
+    "BacABank",
+    "BaoVietBank"
+  ];
+  

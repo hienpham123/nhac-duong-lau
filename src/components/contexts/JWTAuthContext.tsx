@@ -105,7 +105,6 @@ export const AuthProvider = ({ children }: IAuthProviderProps) => {
           type: ACTION_TYPE.INITIALIZE,
           payload: {
             isAuthenticated: Boolean(token && userInfo),
-            // isAuthenticated: true,
             user: userInfo
           }
         });
