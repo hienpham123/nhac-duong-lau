@@ -139,6 +139,18 @@ const routes: IRoutesState[] = [
         path: ROUTERS_PATHS.SERVICE_ONLINE,
         component: lazy(() => import('../components/ServiceOnline/ServiceOnline'))
       },
+      {
+        path: ROUTERS_PATHS.HISTORY_VOTE,
+        component: lazy(() => import('../components/HistoryVote/HistoryVote'))
+      },
+      {
+        path: ROUTERS_PATHS.SET_BANK,
+        component: lazy(() => import('../components/Bank/Setbank'))
+      },
+      {
+        path: ROUTERS_PATHS.BIND_CARD,
+        component: lazy(() => import('../components/Bank/BindCard'))
+      },
     ]
   }
 ];

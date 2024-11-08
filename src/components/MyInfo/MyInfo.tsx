@@ -18,7 +18,7 @@ export default function MyInfo() {
 
     return (
         <div className="relative min-h-screen p-5">
-            <div className="fixed top-0 right-0 w-full h-[300px] z-0 overflow-hidden">
+            <div className="fixed top-0 right-0 w-full h-[280px] sm:h-[300px] z-0 overflow-hidden">
                 <div
                     className="absolute max-w-[650px] mx-auto inset-0 bg-gradient-to-r from-[#f905e5]/50 to-[#e6c3a1]/50 opacity-100"
                 ></div>
@@ -34,27 +34,29 @@ export default function MyInfo() {
                 </Link>
             </div>
 
-            <div className="relative z-10 flex items-center gap-2 sm:gap-10 mt-12">
-                <img
-                    className="w-[70px] h-[70px] sm:w-[112px] sm:h-[112px] rounded-full"
-                    src="https://allimages.sgp1.digitaloceanspaces.com/photographercomvn/2021/04/Tong-kho-hinh-nen-gai-xinh-HD-cho-dien-thoai.jpg"
-                    alt="Avatar"
-                />
-                <div className='flex flex-col gap-3 sm:gap-7'>
-                    <div className="flex gap-4 text-white mt-2">
-                        <h5 className="font-medium text-xl sm:text-[32px]">{currentUser.username}</h5>
-                        <h6 className="font-semibold text-xl sm:text-3xl inline-block">VIP {currentUser.membership_level}</h6>
-                    </div>
-                    <div className="w-full bg-gray-200 h-2 rounded-full">
-                        <div
-                            className="h-full bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] rounded-full"
-                            style={{
-                                width: `${(currentUser.membership_level / 10) * 100}%`,
-                            }}
-                        />
+            <Link to={ROUTERS_PATHS.SETTINGS} state={{ type: "normalInfo" }}>
+                <div className="relative z-10 flex items-center gap-2 sm:gap-10 mt-12">
+                    <img
+                        className="w-[70px] h-[70px] sm:w-[112px] sm:h-[112px] rounded-full"
+                        src='https://api.vnphodendo.com/images/head/19.png'
+                        alt="Avatar"
+                    />
+                    <div className='flex flex-col gap-3 sm:gap-7'>
+                        <div className="flex gap-4 text-white mt-2">
+                            <h5 className="font-medium text-xl sm:text-[32px]">{currentUser.username}</h5>
+                            <h6 className="font-semibold text-xl sm:text-3xl inline-block">VIP {currentUser.membership_level}</h6>
+                        </div>
+                        <div className="w-full bg-gray-200 h-2 rounded-full">
+                            <div
+                                className="h-full bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] rounded-full"
+                                style={{
+                                    width: `${(currentUser.membership_level / 10) * 100}%`,
+                                }}
+                            />
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Link>
 
             <div className="relative w-full bg-white rounded-xl mt-4 flex py-3 sm:py-8 items-center justify-evenly">
                 <Link to={ROUTERS_PATHS.RECHARGE}>
@@ -64,20 +66,24 @@ export default function MyInfo() {
                     </div>
                 </Link>
                 <div className="h-10 w-[2px] bg-gray-300"></div>
-                <div className="flex items-center gap-4">
-                    <SlWallet size={34} />
-                    <span className="font-semibold text-base lg:text-xl">Rút Tiền</span>
-                </div>
+                <Link to={ROUTERS_PATHS.SET_BANK}>
+                    <div className="flex items-center gap-4">
+                        <SlWallet size={34} />
+                        <span className="font-semibold text-base lg:text-xl">Rút Tiền</span>
+                    </div>
+                </Link>
             </div>
 
-            <div className="relative w-full h-[200px] bg-white mt-4 rounded-xl p-7">
-                <div className="flex justify-between">
-                    <span className="font-semibold text-base sm:text-xl">Ví của tôi</span>
-                    <div className="flex items-center gap-1 font-semibold text-base sm:text-xl">
-                        Chi tiết
-                        <IoIosArrowForward />
+            <div className="relative w-full h-[165px] sm:h-[200px] bg-white mt-4 rounded-xl p-4 sm:p-7">
+                <Link to={ROUTERS_PATHS.MONEY_LOG}>
+                    <div className="flex justify-between">
+                        <span className="font-semibold text-base sm:text-xl">Ví của tôi</span>
+                        <div className="flex items-center gap-1 font-semibold text-base sm:text-xl">
+                            Chi tiết
+                            <IoIosArrowForward />
+                        </div>
                     </div>
-                </div>
+                </Link>
                 <div className="h-px w-full bg-gray-300 mt-3"></div>
                 <div className="flex items-center justify-between mt-5">
                     <h2
@@ -121,15 +127,17 @@ export default function MyInfo() {
                 </div>
 
                 <div className="flex justify-center gap-10 lg:gap-20 w-full">
-                    <div className="flex flex-col items-center gap-2 w-32">
-                        <TfiGame
-                            size={30}
-                            className="outline outline-offset-4 outline-2 rounded-full"
-                        />
-                        <span className="font-semibold text-center text-base lg:text-xl">
-                            Lịch sử bình chọn
-                        </span>
-                    </div>
+                    <Link to={ROUTERS_PATHS.HISTORY_VOTE}>
+                        <div className="flex flex-col items-center gap-2 w-32">
+                            <TfiGame
+                                size={30}
+                                className="outline outline-offset-4 outline-2 rounded-full"
+                            />
+                            <span className="font-semibold text-center text-base lg:text-xl">
+                                Lịch sử bình chọn
+                            </span>
+                        </div>
+                    </Link>
                     <Link to={ROUTERS_PATHS.SETTINGS} state={{ type: "normalInfo" }}>
                         <div className="flex flex-col items-center gap-2 w-32">
                             <LuUser2
