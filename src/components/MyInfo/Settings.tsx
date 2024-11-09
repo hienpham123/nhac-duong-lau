@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaPlus, FaStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 import { IoIosArrowBack, IoMdClose } from "react-icons/io";
 import { MdNavigateNext } from "react-icons/md";
 import { TiTick } from "react-icons/ti";
@@ -178,7 +178,7 @@ export default function Settings() {
                                 value={name ? name : ""}
                                 onChange={(e) => setName(e.target.value)}
                                 type="text"
-                                className="float-right border border-gray-300 rounded-lg p-2 w-full ml-2 focus:outline-none focus:ring-2 focus:ring-fuchsia-400"
+                                className="float-right rounded-lg p-2 w-full ml-2 border-none outline-none"
                                 placeholder="Vui lòng nhập tên thật của bạn"
                             />
                         </div>
@@ -211,7 +211,7 @@ export default function Settings() {
                             <h1 className="font-semibold text-base sm:text-2xl">Mật khẩu cũ</h1>
                             <input
                                 type="text"
-                                className="float-right border border-gray-300 rounded-lg p-2 w-2/3 ml-2 focus:outline-none focus:ring-2 focus:ring-fuchsia-400"
+                                className="float-right rounded-lg p-2 w-2/3 ml-2 border-none outline-none"
                                 placeholder="Vui lòng nhập mật khẩu cũ của bạn"
                             />
                         </div>
@@ -219,7 +219,7 @@ export default function Settings() {
                             <h1 className="font-semibold text-base sm:text-2xl">Mật khẩu mới</h1>
                             <input
                                 type="text"
-                                className="float-right border border-gray-300 rounded-lg p-2 w-2/3 ml-2 focus:outline-none focus:ring-2 focus:ring-fuchsia-400"
+                                className="float-right rounded-lg p-2 w-2/3 ml-2 border-none outline-none"
                                 placeholder="Vui lòng nhập mật khẩu mới của bạn"
                             />
                         </div>
@@ -227,7 +227,7 @@ export default function Settings() {
                             <h1 className="font-semibold text-base sm:text-2xl">Mật khẩu mới</h1>
                             <input
                                 type="text"
-                                className="float-right border border-gray-300 rounded-lg p-2 w-2/3 ml-2 focus:outline-none focus:ring-2 focus:ring-fuchsia-400"
+                                className="float-right rounded-lg p-2 w-2/3 ml-2 border-none outline-none"
                                 placeholder="Vui lòng nhập lại mật khẩu mới"
                             />
                         </div>
@@ -246,7 +246,7 @@ export default function Settings() {
                             <h1 className="font-semibold text-base sm:text-2xl">Mật khẩu rút tiền hiện tại</h1>
                             <input
                                 type="text"
-                                className="float-right border border-gray-300 rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-400"
+                                className="float-right p-2 w-full border-none outline-none"
                                 placeholder="Vui lòng nhập mật khẩu rút tiền hiện tại"
                             />
                         </div>
@@ -254,7 +254,7 @@ export default function Settings() {
                             <h1 className="font-semibold text-base sm:text-2xl">Mật khẩu rút tiền mới</h1>
                             <input
                                 type="text"
-                                className="float-right border border-gray-300 rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-400"
+                                className="float-right p-2 w-full border-none outline-none"
                                 placeholder="Vui lòng nhập mật khẩu rút tiền mới"
                             />
                         </div>
@@ -262,7 +262,7 @@ export default function Settings() {
                             <h1 className="font-semibold text-base sm:text-2xl">Nhập lại mật khẩu rút tiền mới</h1>
                             <input
                                 type="text"
-                                className="float-right border border-gray-300 rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-fuchsia-400"
+                                className="float-right p-2 w-full border-none outline-none"
                                 placeholder="Vui lòng nhập lại mật khẩu rút tiền mới"
                             />
                         </div>

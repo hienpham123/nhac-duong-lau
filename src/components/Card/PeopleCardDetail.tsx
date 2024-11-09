@@ -77,16 +77,16 @@ export default function PeopleCardDetail() {
               <div className="w-full aspect-[1/1]">
                 <img
                   src={data?.image_url}
-                  alt=""
+                  alt="loading..."
                   className="w-full h-full object-cover"
                 />
               </div>
               <h1 className="absolute top-2 left-4 bg-[#f905e5] font-semibold px-2 rounded-md text-sm sm:text-base text-white inline-block truncate leading-tight">{data?.sortAddress}</h1>
             </div>
 
-            <div className="flex text-base sm:text-xl flex-col gap-1 sm:gap-3 mt-3 p-2 sm:p-4">
+            <div className="flex text-base sm:text-xl flex-col gap-1 sm:gap-3 mt-1 sm:mt-3 p-2 sm:p-4">
               <div className="flex gap-1">
-                {Array.from({ length: data ? data?.vote : 0 }).map((_, index) => (
+                {Array.from({ length: 6 }).map((_, index) => (
                   <img className='w-[21px] sm:w-[46px] aspect-[1/1]' src='https://www.vnphodendo.vip/img/ico-love.e61811a3.png' />
                 ))}
               </div>

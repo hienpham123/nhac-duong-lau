@@ -23,8 +23,8 @@ export const videos_list = [{
 {
     id: 2,
     title: 'WINNER - MANBO và Billy100 trình diễn với phong thái người chiến thắng | Rap Việt 2024 [Performance]',
-    type_name: 'Viêt Nam',
-    type_id: '1',
+    type_name: 'Mới nhất',
+    type_id: '2',
     description: 'WINNER - MANBO và Billy100 trình diễn với phong thái người chiến thắng | Rap Việt 2024 [Performance]',
     url: 'https://youtu.be/mb4OYXa-WJE',
     video_image: 'https://i.ytimg.com/vi/YLtsIpiZmzU/hqdefault.jpg?s…AFwAcABBg==&rs=AOn4CLDYdjMcW4G2lnit5nXF45nZBJvjgg',

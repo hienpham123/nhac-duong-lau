@@ -1,9 +1,9 @@
-import React, { useRef, useState } from 'react'
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import { Box } from '@mui/material';
-import VideoCard from './VideoCard';
-import { videos_list } from "../../../mock/video-list"
+import React, { useRef, useState } from "react";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import { Box } from "@mui/material";
+import VideoCard from "./VideoCard";
+import { videos_list } from "../../../mock/video-list";
 import ROUTERS_PATHS from "../../shared/constants/router-path";
 import { Link } from "react-router-dom";
 
@@ -15,26 +15,33 @@ export default function WatchVideo() {
     };
 
     const tabLabels = [
-        'Việt Nam',
-        'Mới nhất',
-        'Hot nhất',
-        'Đề xuất',
-        'Châu Á',
-        'Live',
-        'Thật Thà',
-        'Châu Âu và Châu Mỹ',
-        'Anime',
+        "Việt Nam",
+        "Mới nhất",
+        "Hot nhất",
+        "Đề xuất",
+        "Châu Á",
+        "Live",
+        "Thật Thà",
+        "Châu Âu và Châu Mỹ",
+        "Anime",
     ];
 
-    const videos = videos_list
+    const videos = videos_list.filter((item) => +item.type_id == value);
     return (
-        <section className='w-full h-full min-h-screen'>
+        <section className="w-full h-full min-h-screen">
             <div className="flex h-12 md:h-20 items-center bg-[linear-gradient(90deg,#f905e5,#e6c3a1)] justify-center">
                 <h1 className="text-xl sm:text-3xl font-semibold text-white text-center">
                     {`Xem phim`}
                 </h1>
             </div>
-            <Box sx={{ width: '100%', borderTop: '1px solid #fff', position: 'sticky', top: 0 }}>
+            <Box
+                sx={{
+                    width: "100%",
+                    borderTop: "1px solid #fff",
+                    position: "sticky",
+                    top: 0,
+                }}
+            >
                 <Tabs
                     value={value}
                     onChange={handleChange}
@@ -42,8 +49,8 @@ export default function WatchVideo() {
                     scrollButtons="auto"
                     allowScrollButtonsMobile
                     sx={{
-                        background: 'linear-gradient(90deg, #f905e5, #e6c3a1)',
-                        paddingLeft: '0px'
+                        background: "linear-gradient(90deg, #f905e5, #e6c3a1)",
+                        paddingLeft: "0px",
                     }}
                 >
                     {tabLabels.map((label, index) => (
@@ -52,20 +59,32 @@ export default function WatchVideo() {
                             label={label}
                             value={index + 1}
                             sx={{
-                                color: 'white',
+                                color: "white",
                                 fontSize: 15,
-                                textTransform: 'none',
-                                '&.Mui-selected': {
-                                    color: 'white',
+                                textTransform: "none",
+                                "&.Mui-selected": {
+                                    color: "white",
                                 },
                             }}
                         />
                     ))}
                 </Tabs>
             </Box>
-            <div className='grid grid-cols-2 gap-2 p-2'>
-                {videos.length && videos.map(video => <Link key={video.id} to={ROUTERS_PATHS.VIDEO_DETAIL.replace(':id', video.id.toString())}><VideoCard video={video} /></Link>)}
+            <div className="grid grid-cols-2 gap-2 p-2">
+                {videos.length
+                    ? videos.map((video) => (
+                        <Link
+                            key={video.id}
+                            to={ROUTERS_PATHS.VIDEO_DETAIL.replace(
+                                ":id",
+                                video.id.toString()
+                            )}
+                        >
+                            <VideoCard video={video} />
+                        </Link>
+                    ))
+                    : null}
             </div>
         </section>
-    )
+    );
 }

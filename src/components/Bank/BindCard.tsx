@@ -81,7 +81,7 @@ export default function BindCard() {
                         onClick={closeModal}
                     ></div>
 
-                    <div className="fixed inset-x-0 bottom-0 max-h-[50%] bg-white rounded-t-lg py-4 z-20 overflow-y-auto transform translate-y-full animate-slide-up">
+                    <div className="fixed inset-x-0 bottom-0 max-h-[40%] bg-white rounded-t-lg py-4 z-20 overflow-y-auto transform translate-y-full animate-slide-up">
                         <div className="space-y-4">
                             {vietnamBanks.map((option, index) => (
                                 <div
